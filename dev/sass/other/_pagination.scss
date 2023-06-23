@@ -1,0 +1,184 @@
+/* === BEGIN wp_pagenavi === */
+.wp-pagenavi {
+    margin-bottom: 30px;
+    position: relative;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        border-radius: 50%;
+        background: $grey-page;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all .2s ease-in-out;
+        color: $black;
+        margin: 0 5px;
+
+        &:hover,
+        &.active {
+            background-color: $primary-color;
+            color: $black;
+        }
+
+    }
+
+    .last,
+    .first {
+        text-decoration: none;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .2s ease-in-out;
+        display: none;
+
+    }
+
+    .nextpostslink,
+    .previouspostslink {
+        background: none;
+        position: relative;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:before {
+            font-family: 'icomoon';
+            content: "\e918";
+        }
+
+        &:hover {
+            background: none;
+            color: $primary-color;
+        }
+    }
+
+    .nextpostslink {
+        &:before {
+            content: "\e917";
+        }
+    }
+
+    .first,
+    .last,
+    .previouspostslink,
+    .nextpostslink,
+    .page,
+    .current {
+        padding: 3px 5px;
+    }
+
+    .current {
+        border-radius: 50%;
+        background: $grey-page;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all .2s ease-in-out;
+        color: $black;
+        margin: 0 5px;
+    }
+}
+
+/* === END wp_pagenavi === */
+
+.paginations-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+    li {
+        padding: 0;
+        margin-right: 9px;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+        &:before {
+            display: none;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .page-btn {
+        .current,
+        a {
+            border-radius: 50%;
+            background: $white;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all .2s ease-in-out;
+            color: $primary-color;
+            font-size: 18px;
+            border: 1px solid $secondary-color;
+
+            &:hover,
+            &.active {
+                background-color: $primary-color;
+                color: $white;
+                border-color: transparent;
+            }
+
+            &.active {
+                pointer-events: none;
+            }
+        }
+
+        .current {
+            background-color: $primary-color;
+            color: $white;
+            border-color: transparent;
+        }
+
+        .dots {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 26px;
+        }
+    }
+
+    .next-page,
+    .prev-page {
+        text-decoration: none;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .2s ease-in-out;
+
+        a {
+
+            &.next,
+            &.prev {
+                font-weight: 400;
+                color: $secondary-color;
+                font-size: 16px;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+///fonts///
+$font-primary: 'Source Sans 3', sans-serif;
+$font-size: 20px;
+$section-title: 32px;
+$line-height: 1.5;
+$color: #212121;
+$font-weight: 400;
+
+///colors///
+$white: #fff;
+$black: #000;
+$black-2: #1A0404;
+$black-3: #1A1919;
+$black-4: #171212;
+$red: #F02A2A;
+$dark-red: #290000;
+$grey: #8C8C8C;
+$grey-2: #F2F0F0;
+$grey-3: #D9CECE;
+$grey-light: #FDFCFC;
+$grey-4: #4E4141;
+$green: #009B72;
+
+$primary-color: #FF7E00;
+$secondary-color: #33535F;
+$tertiary-color: #00A39C;
+
+
+/*grey*/
+
+$required: $primary-color;
+$placeholder: #bdbdbd;
+
+/*   <Breadcrumbs/>   */
+$breadcrumbs-slash: $secondary-color;
+$breadcrumbs-link: $tertiary-color;
+$breadcrumbs-link-hover: $primary-color;
+$breadcrumbs-last-child: #B2B1B1;
+
+/*   <Muve-top/>   */
+$muve-top-background: $primary-color;
+$muve-top-color: #fff;

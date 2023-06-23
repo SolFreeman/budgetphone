@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/*
+Theme Name: Budgetphone
+Theme URI: https://wordpress.org/themes/CustomTheme/
+Author: the KofeLatte team
+Author URI: http://KofeLatte.com.ua/
+Description: CustomTheme brings your site to life with immersive featured images and subtle animations. Our default theme works great in many languages, for any abilities, and on any device.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: Budgetphone
+Tags: custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+@import "sass/mixins";
+@import "sass/variables";
+@import "sass/general";
+@import "sass/z-index";
+@import "sass/other/simplebar";
+@import "sass/fonts";
+@import "sass/icon";
+@import "sass/modal";
+// @import "sass/header";
+// @import "sass/other/_pagination.scss";
+// @import "sass/other/templatePageBlock";
+@import "sass/wp-style";
+@import "sass/footer";
+@import "sass/media/media";
+// @import "sass/page/404";
+// @import "sass/page/home";
+// @import "sass/page/about";
+// @import "sass/page/adventures";
+@import "sass/page/shop";
+@import "sass/checkout";
+
