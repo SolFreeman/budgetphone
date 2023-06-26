@@ -24,7 +24,7 @@
 
         &.with-img {
             background: none;
-            
+
             &:before {
                 background: url('./assets/img/mobile-graphic-overlay.png') no-repeat;
                 background-size: 100% 100%;
@@ -72,7 +72,7 @@
 
             &.with-img {
                 background: none;
-                
+
                 &:before {
                     background: url('./assets/img/graphic-overlay.png') no-repeat;
                     background-size: 100% 100%;
@@ -168,7 +168,7 @@
         align-items: center;
 
         &.telefoons {
-            .top-box {        
+            .top-box {
                 .label {
                     top: auto;
                     bottom: 138px;
@@ -431,7 +431,7 @@
         h2 {
             margin: 10px 0 20px;
         }
-        
+
         p {
             margin: 0 0 55px;
         }
@@ -475,7 +475,7 @@
                 &:first-child {
                     border: none;
                 }
-                
+
                 &:before {
                     display: none;
                 }
@@ -483,24 +483,32 @@
         }
     }
 
-    
+
 }
+
 /* modal */
 
-#modal-shop {
+.modal-shop {
     max-width: 722px;
     width: 100%;
     display: none;
-    padding: 24px 0 0;
+    padding: 0;
 
     .tabs__holder {
         display: flex;
         justify-content: center;
-        margin-bottom: 30px;
+    }
+
+    @include media('>=tablet') {
+        padding: 24px 0 0;
+
+        .tabs__holder {
+            margin-bottom: 30px;
+        }
     }
 
     .tabs__caption {
-        display: flex;
+        display: none;
         margin: 0;
         padding: 0;
         list-style: none;
@@ -526,6 +534,10 @@
                 background: $white;
             }
         }
+
+        @include media('>=tablet') {
+            display: flex;
+        }
     }
 
     .content-tabs {
@@ -536,16 +548,30 @@
     }
 
     .tab-body {
-        padding: 32px 56px;
+        padding: 32px 16px;
         margin-right: 5px;
+
+        @include media('>=tablet') {
+            padding: 32px 56px;
+        }
     }
 
     h2 {
         color: $black-3;
         font-size: 38px;
+        margin: 0;
+    }
+
+    .title-holder {
         margin: 0 0 24px;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @include media('>=tablet') {
+            flex-direction: row;
+            align-items: center;
+        }
     }
 
     .price {
@@ -570,7 +596,7 @@
         list-style: none;
         margin: 0 0 40px;
         padding: 0;
-        
+
         li {
             padding-left: 34px;
             position: relative;
@@ -587,7 +613,7 @@
             }
         }
     }
-    
+
 
     .select-area {
         background-color: #F2F0F0;
@@ -595,14 +621,14 @@
         padding: 18px 24px;
         border-radius: 5px;
         margin-bottom: 60px;
-        
+
 
         .tilte {
             display: block;
             margin: 0 0 10px;
             text-transform: uppercase;
         }
-        
+
         label {
             font-weight: 600;
             display: block;
@@ -624,7 +650,7 @@
             -webkit-appearance: none;
             appearance: none;
             -moz-appearance: none;
-            
+
             &:focus {
                 outline: none;
             }
@@ -633,11 +659,11 @@
 
     .tab-footer {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         background: rgba(32, 164, 243, 0.15);
-        padding: 16px 24px;
+        padding: 16px 40px 40px;
         color: $black-2;
-        align-items: center;
+        align-items: flex-start;
 
         .title {
             font-size: 20px;
@@ -646,7 +672,18 @@
         }
 
         p {
-            margin: 0;
+            margin: 0 0 16px;
+        }
+
+        @include media('>=tablet') {
+            padding: 16px 24px;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+                margin: 0;
+            }
         }
     }
 
@@ -670,13 +707,18 @@
     }
 
     .fancybox-close-small {
-        top: 110px;
+        top: 37px;
         right: 24px;
         width: 44px;
         height: 44px;
         background: #F2F0F0;
         border-radius: 50%;
         padding: 0;
+        transition: all .2s ease-in-out;
+
+        @include media('>=tablet') {
+            top: 110px;
+        }
 
         &:after {
             font-family: 'icomoon';
@@ -686,7 +728,19 @@
             width: auto;
             height: auto;
             position: static;
+            transition: all .2s ease-in-out;
 
+
+            &:focus {
+                outline: none;
+            }
+
+        }
+
+        &:focus {
+            &:after {
+                outline: none;
+            }
         }
     }
 
@@ -711,11 +765,182 @@
         right: 0;
         top: 10px;
         border-radius: 2px;
-        margin-left: 15px;
         font-size: 14px;
+
+        @include media('>=tablet') {
+            margin-left: 15px;
+        }
     }
 
     .scroll {
         max-height: 564px;
+    }
+}
+
+.telefoons {
+    height: 800px;
+}
+
+.fancybox-infobar {
+    display: none;
+}
+
+.shop-telefoons {
+    max-width: 918px;
+    width: 100%;
+    background: $white;
+    -webkit-box-shadow: 0 0 40px 0 rgba(0, 0, 0, .21);
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, .21);
+    padding: 0;
+    border-radius: 12px;
+
+    h2 {
+        max-width: 400px;
+        line-height: 1.2;
+        margin: 0 0 18px;
+    }
+
+    .list-info {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            padding: 0;
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    .modal-body {
+        display: flex;
+        flex-direction: column;
+        padding: 32px 16px;
+        margin-right: 4px;
+
+        @include media('>=tablet') {
+            flex-direction: row;
+            padding: 32px 56px 120px;
+        }
+    }
+
+    .img-holder,
+    .info-col {
+        width: 100%;
+
+        @include media('>=tablet') {
+            width: 50%;
+        }
+    }
+
+    .img-holder {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .list-info {
+        li {
+            margin: 0 0 18px;
+        }
+    }
+
+    .price {
+        margin: 0;
+    }
+
+    .price-box {
+        display: flex;
+        align-items: center;
+        margin: 0 0 25px;
+    }
+
+    .modal-footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 16px 24px;
+        border-top: 1px solid #D9CECE;
+    }
+
+    .fancybox-close-small {
+        top: 28px;
+        right: 24px;
+    }
+}
+
+.fancybox-is-open .fancybox-bg {
+    background: $white;
+    opacity: 1;
+
+}
+
+.fancybox-navigation {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99995;
+
+    button {
+        position: relative;
+        width: 96px;
+        height: 46px;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, .21);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $white;
+
+
+        &.fancybox-button--arrow_right {
+            border-radius: 0 9px 9px 0;
+
+            &:before {
+                font-family: 'icomoon';
+                content: '\e902';
+            }
+        }
+
+        &.fancybox-button--arrow_left {
+            border-radius: 9px 0 0 9px;
+
+            &:before {
+                font-family: 'icomoon';
+                content: '\e900';
+            }
+        }
+
+        &:before {
+            width: auto;
+            height: auto;
+            background: transparent;
+            position: static;
+            top: 0;
+            right: 0;
+            font-size: 34px;
+            color: $black;
+        }
+
+        svg {
+            display: none;
+        }
+    }
+}
+
+.fancybox-show-nav {
+    .fancybox-navigation {
+        display: flex;
+        justify-content: center;
+
+        button {
+            position: relative;
+
+        }
     }
 }

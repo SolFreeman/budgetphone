@@ -65,11 +65,34 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
+
+
+	$('a[data-fancybox][data-target]').on('click', function (e) {
+		e.preventDefault();
+		var targetModalId = $(this).attr('href');
+		var targetTabId = $(this).data('target');
+
+		$.fancybox.open($(targetModalId), {
+			beforeShow: function () {
+				var targetModal = $(targetModalId);
+				targetModal.find('ul.tabs__caption li').removeClass('active');
+				targetModal.find('div.tabs__content').removeClass('active');
+			},
+			afterShow: function () {
+				var targetModal = $(targetModalId);
+				targetModal.find(targetTabId).addClass('active');
+				var targetTabIndex = targetModal.find(targetTabId).index();
+				targetModal.find('ul.tabs__caption li').eq(targetTabIndex).addClass('active');
+			}
+		});
+	});
+
 	$('ul.tabs__caption').on('click', 'li:not(.active)', function () {
 		$(this)
 			.addClass('active').siblings().removeClass('active')
 			.closest('div.tabs').find('div.tabs__content').removeClass('active').eq($(this).index()).addClass('active');
 	});
+
 
 	$('.detail-links').on('click', 'li:not(.active)', function () {
 		$(this)
@@ -229,9 +252,9 @@ jQuery(document).ready(function ($) {
 	let navOpener = document.querySelector('.js-nav-opener');
 	let header = document.querySelector('.header');
 
-	navOpener.addEventListener('click', () => {
-		header.classList.toggle('active');
-	})
+	// navOpener.addEventListener('click', () => {
+	// 	header.classList.toggle('active');
+	// })
 
 	$('.review-box').masonry({
 		itemSelector: '.review-box .item'
