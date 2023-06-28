@@ -1,6 +1,6 @@
 // .markup {
 // 	padding-top: 50px;
-	
+
 // 	.row {
 // 		display: flex;
 // 		flex-wrap: wrap;
@@ -271,7 +271,7 @@ img {
 // 		font-weight: 600;
 // 		margin-bottom: 16px;
 // 	}
-	
+
 // 	dd {
 // 		padding: 0;
 // 		margin: 0 0 24px;
@@ -358,11 +358,12 @@ img {
 
 input[type="checkbox"],
 input[type="radio"] {
-	display: none;
+	position: absolute;
+	left:-99999px;
 
 	&+label {
-		color: $white;
 		cursor: pointer;
+		position: relative;
 
 		&:before {
 			content: '';
@@ -373,12 +374,22 @@ input[type="radio"] {
 			width: 26px;
 			height: 26px;
 			background-color: transparent;
-			border: 1px solid $white;
+			border: 1px solid #D5D2D2;
 			border-radius: 2px;
+		}
+
+		&:after {
+			position: absolute;
+			content: '';
+			left: 6px;
+			top: calc(50% - 7px);
+			width: 14px;
+			height: 14px;
+			background: transparent;
+			border-radius: 50%;
 		}
 	}
 }
-
 
 
 input[type="radio"]+label:before {
@@ -389,10 +400,19 @@ input[type="checkbox"]+label:before {
 	background-color: $white;
 }
 
-input[type=radio]:checked+label:before {
-	border-radius: 50%;
-	background: url(assets/img/radio.svg) center/14px no-repeat transparent;
-	border-color: $white;
+input[type=radio]:checked+label {
+	color: $red !important;
+
+	&:before {
+		border-radius: 50%;
+		background: url(assets/img/radio.svg) center/14px no-repeat transparent;
+		border-color: $red;
+	}
+
+	&:after {
+		background: $red;
+	}
+
 }
 
 
@@ -400,7 +420,7 @@ input:checked+label {
 	&:before {
 		content: '';
 		background: url(assets/img/checkbox.svg) center/12px no-repeat $white;
-		border-color: $white;
+		border-color: $red;
 	}
 }
 
@@ -577,7 +597,7 @@ input:checked+label {
 			height: 60px;
 			line-height: 67px;
 		}
-		
+
 
 		&:first-child {
 			margin-left: 0;

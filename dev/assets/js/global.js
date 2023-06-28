@@ -37,9 +37,9 @@ $(window).on('load resize', function () {
 
 jQuery(document).ready(function ($) {
 	faqAccordeon();
-	$(".fancybox").fancybox();
 	openDropdown();
 	addClass();
+	// selectNumber();
 
 	$(window).on('beforeunload', function () {
 		if ($(window).scrollTop() === 0) {
@@ -67,12 +67,14 @@ jQuery(document).ready(function ($) {
 
 
 
-	$('a[data-fancybox][data-target]').on('click', function (e) {
+	$('a[data-fancybox][data-target].open').on('click', function (e) {
 		e.preventDefault();
 		var targetModalId = $(this).attr('href');
 		var targetTabId = $(this).data('target');
 
 		$.fancybox.open($(targetModalId), {
+			arrows: false,
+			infobar: false,
 			beforeShow: function () {
 				var targetModal = $(targetModalId);
 				targetModal.find('ul.tabs__caption li').removeClass('active');
@@ -85,6 +87,8 @@ jQuery(document).ready(function ($) {
 				targetModal.find('ul.tabs__caption li').eq(targetTabIndex).addClass('active');
 			}
 		});
+
+		$('.fancybox-navigation').addClass('hidden');
 	});
 
 	$('ul.tabs__caption').on('click', 'li:not(.active)', function () {
@@ -92,6 +96,11 @@ jQuery(document).ready(function ($) {
 			.addClass('active').siblings().removeClass('active')
 			.closest('div.tabs').find('div.tabs__content').removeClass('active').eq($(this).index()).addClass('active');
 	});
+
+
+
+
+
 
 
 	$('.detail-links').on('click', 'li:not(.active)', function () {
@@ -256,9 +265,39 @@ jQuery(document).ready(function ($) {
 	// 	header.classList.toggle('active');
 	// })
 
-	$('.review-box').masonry({
-		itemSelector: '.review-box .item'
+	let form = $("#checkout-step");
+	form.validate({
+		errorPlacement: function errorPlacement(error, element) { element.before(error); },
+		rules: {
+			confirm: {
+				equalTo: "#password"
+			}
+		}
 	});
+	form.children("div").steps({
+		headerTag: ".step-item",
+		bodyTag: "section",
+		transitionEffect: "slideLeft",
+		titleTemplate: "<span class='number'>#index#</span> #title#",
+		cssClass: "step-holder",
+		labels: {
+			finish: "Finish",
+			next: "Next",
+			previous: "Vorige",
+		},
+		onStepChanging: function (event, currentIndex, newIndex) {
+			form.validate().settings.ignore = ":disabled,:hidden";
+			return form.valid();
+		},
+		onFinishing: function (event, currentIndex) {
+			form.validate().settings.ignore = ":disabled";
+			return form.valid();
+		},
+		onFinished: function (event, currentIndex) {
+			alert("Submitted!");
+		}
+	});
+
 
 	$('.happy-slider').slick({
 		arrows: true,
@@ -412,3 +451,100 @@ function faqAccordeon() {
 		});
 	});
 }
+
+$(document).ready(function () {
+	// Функция для вычисления и скрытия строк таблицы
+	function filterTableRows() {
+		var selectedValue = $("#netnummer").val();
+		var $tableRows = $("#telefoonnummer tr");
+
+		$tableRows.each(function () {
+			var $row = $(this);
+			var $numberLabel = $row.find("label");
+			var number = $numberLabel.text().trim();
+			var numberCode = number.split(" ")[0];
+
+			if (numberCode === selectedValue) {
+				$row.show();
+			} else {
+				$row.hide();
+			}
+		});
+	}
+
+	// Слушаем событие изменения значения в select
+	$("#netnummer").on("change", filterTableRows);
+
+	// Вызываем функцию при загрузке страницы
+	filterTableRows();
+
+	function addSelectedTr() {
+		$('input[type="radio"]').on('click', function () {
+			// Удаляем класс "selected" у всех строк
+			$('.table-select tr').removeClass('selected');
+
+			// Добавляем класс "selected" выбранной строке
+			$(this).closest('tr').addClass('selected');
+		});
+	}
+	addSelectedTr();
+
+	// При изменении содержимого полей ввода в форме
+	$('.mini-form .text-input').on('input', function () {
+		var form = $(this).closest('.mini-form'); // Находим родительский элемент формы
+		var button = form.find('button'); // Находим кнопку в текущей форме
+
+		// Проверяем, все ли поля в текущей форме заполнены
+		var allFieldsFilled = form.find('.text-input').filter(function () {
+			return $(this).val().trim() !== '';
+		}).length === form.find('.text-input').length;
+
+		// Если все поля заполнены, удаляем класс hidden у кнопки, иначе добавляем его
+		if (allFieldsFilled) {
+			button.removeClass('inactive');
+		} else {
+			button.addClass('inactive');
+		}
+	});
+
+	// Проверка разрешения экрана и привязка обработчиков событий
+	if ($(window).width() <= 810) {
+		let sidebar = $('.sidebar');
+		let body = $('body');
+		let overlay = $('<div class="overlay"></div>'); // Создание оверлея
+
+		// Обработчик клика по сайдбару
+		sidebar.on('click', function () {
+			sidebar.removeClass('closed').addClass('opened');
+			body.addClass('sidebar-active');
+			body.append(overlay); // Добавление оверлея в DOM
+		});
+
+		// Обработчик клика по оверлею
+		body.on('click', '.overlay', function () {
+			sidebar.removeClass('opened');
+			body.removeClass('sidebar-active');
+			overlay.remove(); // Удаление оверлея из DOM
+		});
+
+		// Обработчики событий сенсорного ввода для свайпов
+		let startY;
+		sidebar.on('touchstart', function (e) {
+			startY = e.originalEvent.touches[0].pageY;
+		});
+
+		sidebar.on('touchmove', function (e) {
+			let currentY = e.originalEvent.touches[0].pageY;
+
+			if (currentY < startY) {
+				sidebar.addClass('opened');
+				body.addClass('sidebar-active');
+				body.append(overlay); // Добавление оверлея в DOM
+			} else if (currentY > startY) {
+				sidebar.removeClass('opened');
+				body.removeClass('sidebar-active');
+				overlay.remove(); // Удаление оверлея из DOM
+			}
+		});
+	}
+});
