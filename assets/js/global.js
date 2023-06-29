@@ -1,45 +1,13 @@
 $(window).on('load resize', function () {
 	if ($(window).width() < 768) {
-		$('.review-slider:not(.slick-initialized)').slick({
-			dots: true,
-			infinite: true,
-			speed: 100,
-			slidesToShow: 1,
-			arrows: false
-		});
-
-		$('.js-secrets-slider:not(.slick-initialized)').slick({
-			dots: true,
-			infinite: true,
-			speed: 200,
-			slidesToShow: 1,
-			arrows: false
-		});
-
-		// $('.search-list:not(.slick-initialized)').slick({
-		// 	dots: true,
-		// 	infinite: true,
-		// 	speed: 200,
-		// 	slidesToShow: 1,
-		// 	arrows: false
-		// });
+		
 
 	} else {
-		$(".js-secrets-slider.slick-initialized").slick("unslick");
-		$(".review-slider.slick-initialized").slick("unslick");
-		// $(".search-list.slick-initialized").slick("unslick");
-	}
-
-	if ($(window).width() < 1340) {
-		openPro();
+		
 	}
 });
 
 jQuery(document).ready(function ($) {
-	faqAccordeon();
-	openDropdown();
-	addClass();
-	// selectNumber();
 
 	$(window).on('beforeunload', function () {
 		if ($(window).scrollTop() === 0) {
@@ -99,172 +67,6 @@ jQuery(document).ready(function ($) {
 
 
 
-
-
-
-
-	$('.detail-links').on('click', 'li:not(.active)', function () {
-		$(this)
-			.addClass('active').siblings().removeClass('active')
-			.closest('div.tabs').find('div.tabs__content').removeClass('active').eq($(this).index()).addClass('active');
-	});
-
-
-	$('.btn_pro').hover(function () {
-		$('.choose-menu').removeClass('active');
-	});
-
-	function autocomplete() {
-		let suggestions = [];
-
-		$('.faq-list li span').each(function () {
-			suggestions.push($(this).text());
-		});
-
-		$('.search').on('input', function () {
-			let inputValue = $(this).val().toLowerCase();
-			let suggestionList = $('.suggestion-list');
-
-			if (inputValue.length >= 3) {
-				let filteredSuggestions = suggestions.filter(function (suggestion) {
-					return suggestion.toLowerCase().includes(inputValue);
-				});
-
-				let suggestionItems = filteredSuggestions.map(function (suggestion) {
-					return '<li>' + suggestion + '</li>';
-				});
-
-				suggestionList.html(suggestionItems.join(''));
-				suggestionList.show();
-			} else {
-				suggestionList.hide();
-			}
-
-			if (inputValue === '') {
-				$('.faq-list li').show();
-			}
-		});
-
-		$('.suggestion-list').on('click', 'li', function () {
-			let suggestion = $(this).text();
-			$('.search').val(suggestion);
-			$('.suggestion-list').hide();
-
-			let faqList = $('.faq-list li');
-			faqList.hide();
-			faqList.filter(function () {
-				return $(this).find('span').text() === suggestion;
-			}).show();
-		});
-	}
-
-	autocomplete();
-
-	function miniTabs() {
-		var windowWidth = $(window).width();
-		var isMobile = windowWidth <= 1024;
-
-		function togglePhotoBox() {
-			windowWidth = $(window).width();
-			isMobile = windowWidth <= 1024;
-
-			if (isMobile) {
-				$('ul.mini-tabs li').off('click').on('click', function () {
-					var photoBox = $(this).find('.photo-box');
-
-					if (photoBox.is(':visible')) {
-						photoBox.slideUp();
-					} else {
-						$('.photo-box').slideUp();
-						photoBox.slideDown();
-					}
-				});
-
-				$('ul.mini-tabs li:first-child .photo-box').slideDown();
-			} else {
-				$('ul.mini-tabs li').off('click');
-				$('.photo-box').slideUp();
-			}
-		}
-
-		togglePhotoBox();
-
-		$(window).resize(function () {
-			var newWindowWidth = $(window).width();
-			var newIsMobile = newWindowWidth <= 768;
-
-			if (isMobile !== newIsMobile) {
-				togglePhotoBox();
-			}
-		});
-	}
-
-
-	miniTabs();
-
-	function addClass() {
-		var mainHeader = $('.main-header');
-		var headerOffset = mainHeader.offset().top;
-
-		$(window).on('load scroll', function () {
-			var scrollTop = $(window).scrollTop();
-
-			if (scrollTop >= headerOffset) {
-				mainHeader.addClass('sticky');
-			} else {
-				mainHeader.removeClass('sticky');
-			}
-		});
-	}
-
-	$(window).scroll(function () {
-		if ($(this).scrollTop() > 50) {
-			$('.scrolltop:hidden').stop(true, true).fadeIn();
-		} else {
-			$('.scrolltop').stop(true, true).fadeOut();
-		}
-	});
-
-	$(function () {
-		$(".muve-top").click(function () {
-			var top = $(".thetop").offset().top;
-			$('html, body').animate({
-				scrollTop: top
-			}, 3000, 'easeOutExpo');
-			return false
-		})
-	})
-
-	var nav = $('.language-title');
-	var selection = $('.language-list');
-	var select = selection.find('li');
-
-	nav.click(function (event) {
-		if (nav.hasClass('active')) {
-			nav.removeClass('active');
-			selection.stop().slideUp(200);
-		} else {
-			nav.addClass('active');
-			selection.stop().slideDown(200);
-		}
-		event.preventDefault();
-	});
-
-	select.click(function (event) {
-		select.removeClass('active');
-		$(this).addClass('active');
-		var $lang = $(this).text();
-		nav.text($lang);
-		nav.trigger('click');
-	});
-
-	let navOpener = document.querySelector('.js-nav-opener');
-	let header = document.querySelector('.header');
-
-	// navOpener.addEventListener('click', () => {
-	// 	header.classList.toggle('active');
-	// })
-
 	let form = $("#checkout-step");
 	form.validate({
 		errorPlacement: function errorPlacement(error, element) { element.before(error); },
@@ -282,7 +84,7 @@ jQuery(document).ready(function ($) {
 		cssClass: "step-holder",
 		labels: {
 			finish: "Finish",
-			next: "Next",
+			next: "Volgende",
 			previous: "Vorige",
 		},
 		onStepChanging: function (event, currentIndex, newIndex) {
@@ -297,163 +99,10 @@ jQuery(document).ready(function ($) {
 			alert("Submitted!");
 		}
 	});
-
-
-	$('.happy-slider').slick({
-		arrows: true,
-		dots: true,
-		slidesToShow: 3,
-		variableWidth: true,
-		responsive: [
-			{
-				breakpoint: 768,
-				settings: {
-					arrows: false,
-					slidesToShow: 1
-				},
-			}
-		]
-	});
-
-	$('.gameplay-slider').slick({
-		arrows: true,
-		dots: false,
-		slidesToShow: 3,
-		centerMode: true,
-		centerPadding: '0',
-		responsive: [
-			{
-				breakpoint: 768,
-				settings: {
-					slidesToShow: 1,
-					arrows: false,
-					dots: true
-				},
-			}
-		]
-	});
-
-	$('.feedback-slider').slick({
-		slidesToShow: 3,
-		dots: true,
-		responsive: [
-			{
-				breakpoint: 1024,
-				settings: {
-					slidesToShow: 2,
-				},
-			},
-			{
-				breakpoint: 768,
-				settings: {
-					slidesToShow: 2,
-					arrows: false,
-					centerMode: true,
-					centerPadding: '60px',
-				},
-			},
-			{
-				breakpoint: 640,
-				settings: {
-					slidesToShow: 1,
-					centerMode: true,
-					arrows: false,
-					adaptiveHeight: true,
-					centerPadding: '30px',
-				}
-			}
-		]
-	});
-
-	$('.photo-area__slider').slick({
-		slidesToShow: 3,
-		dots: false,
-		responsive: [
-			{
-				breakpoint: 1024,
-				settings: {
-					slidesToShow: 2,
-				}
-			},
-			{
-				breakpoint: 768,
-				settings: {
-					slidesToShow: 1,
-				}
-			},
-		]
-	});
-
-	AOS.init({
-		duration: 1000,
-	});
-
-	document.addEventListener('aos:in', ({ detail }) => {
-		console.log('animated in', detail);
-	});
-
-	document.addEventListener('aos:out', ({ detail }) => {
-		console.log('animated out', detail);
-	});
 });
 
 
-function openDropdown() {
-	jQuery('.open-link').on('click', function (e) {
-		e.preventDefault();
-		jQuery('.choose-menu').toggleClass('active');
-	});
-	$(document).mouseup(function (e) {
-		let div = $('.choose-menu');
-		if (!div.is(e.target)
-			&& div.has(e.target).length === 0) {
-			div.removeClass('active');
-		}
-	});
-}
-
-function openPro() {
-	jQuery('.btn_pro').on('click', function () {
-		jQuery('.btn-box').toggleClass('active');
-	});
-	$(document).mouseup(function (e) {
-		let div = $('.btn-box');
-		if (!div.is(e.target)
-			&& div.has(e.target).length === 0) {
-			div.removeClass('active');
-		}
-	});
-}
-
-function faqAccordeon() {
-	var allLi = jQuery('.faq-list li'),
-		allSub = allLi.children('.filter');
-
-	jQuery('.faq-list li > span').each(function () {
-		var doc = jQuery(document),
-			$this = jQuery(this),
-			item = $this.parent('li'),
-			itemFilter = $this.next('.text-faq'),
-			itemParent = item.parents('li');
-
-
-		$this.on('click', function () {
-			if (item.hasClass('active')) {
-				itemFilter.slideUp();
-				item.removeClass('active');
-			}
-			else {
-				allLi.not(itemParent).removeClass('active');
-				allLi.not(itemParent).find('.text-faq').slideUp();
-				itemFilter.slideDown();
-				item.addClass('active');
-			}
-		});
-	});
-}
-
 $(document).ready(function () {
-	// Функция для вычисления и скрытия строк таблицы
 	function filterTableRows() {
 		var selectedValue = $("#netnummer").val();
 		var $tableRows = $("#telefoonnummer tr");
@@ -472,34 +121,28 @@ $(document).ready(function () {
 		});
 	}
 
-	// Слушаем событие изменения значения в select
 	$("#netnummer").on("change", filterTableRows);
 
-	// Вызываем функцию при загрузке страницы
 	filterTableRows();
 
 	function addSelectedTr() {
 		$('input[type="radio"]').on('click', function () {
-			// Удаляем класс "selected" у всех строк
 			$('.table-select tr').removeClass('selected');
 
-			// Добавляем класс "selected" выбранной строке
 			$(this).closest('tr').addClass('selected');
 		});
 	}
 	addSelectedTr();
 
-	// При изменении содержимого полей ввода в форме
 	$('.mini-form .text-input').on('input', function () {
-		var form = $(this).closest('.mini-form'); // Находим родительский элемент формы
-		var button = form.find('button'); // Находим кнопку в текущей форме
+		var form = $(this).closest('.mini-form'); 
+		var button = form.find('button'); 
 
-		// Проверяем, все ли поля в текущей форме заполнены
+		
 		var allFieldsFilled = form.find('.text-input').filter(function () {
 			return $(this).val().trim() !== '';
 		}).length === form.find('.text-input').length;
 
-		// Если все поля заполнены, удаляем класс hidden у кнопки, иначе добавляем его
 		if (allFieldsFilled) {
 			button.removeClass('inactive');
 		} else {
@@ -507,44 +150,116 @@ $(document).ready(function () {
 		}
 	});
 
-	// Проверка разрешения экрана и привязка обработчиков событий
-	if ($(window).width() <= 810) {
-		let sidebar = $('.sidebar');
-		let body = $('body');
-		let overlay = $('<div class="overlay"></div>'); // Создание оверлея
+	function openedSidebar() {
+		if ($(window).width() <= 810) {
+			let sidebar = $('.sidebar');
+			let body = $('body');
+			let overlay = $('<div class="overlay"></div>'); 
 
-		// Обработчик клика по сайдбару
-		sidebar.on('click', function () {
-			sidebar.removeClass('closed').addClass('opened');
-			body.addClass('sidebar-active');
-			body.append(overlay); // Добавление оверлея в DOM
-		});
 
-		// Обработчик клика по оверлею
-		body.on('click', '.overlay', function () {
-			sidebar.removeClass('opened');
-			body.removeClass('sidebar-active');
-			overlay.remove(); // Удаление оверлея из DOM
-		});
-
-		// Обработчики событий сенсорного ввода для свайпов
-		let startY;
-		sidebar.on('touchstart', function (e) {
-			startY = e.originalEvent.touches[0].pageY;
-		});
-
-		sidebar.on('touchmove', function (e) {
-			let currentY = e.originalEvent.touches[0].pageY;
-
-			if (currentY < startY) {
-				sidebar.addClass('opened');
+			sidebar.on('click', function () {
+				sidebar.removeClass('closed').addClass('opened');
 				body.addClass('sidebar-active');
-				body.append(overlay); // Добавление оверлея в DOM
-			} else if (currentY > startY) {
+				body.append(overlay); 
+			});
+
+
+			body.on('click', '.overlay', function () {
 				sidebar.removeClass('opened');
 				body.removeClass('sidebar-active');
-				overlay.remove(); // Удаление оверлея из DOM
-			}
-		});
+				overlay.remove(); 
+			});
+
+			let startY;
+			sidebar.on('touchstart', function (e) {
+				startY = e.originalEvent.touches[0].pageY;
+			});
+
+			sidebar.on('touchmove', function (e) {
+				let currentY = e.originalEvent.touches[0].pageY;
+
+				if (currentY < startY) {
+					sidebar.addClass('opened');
+					body.addClass('sidebar-active');
+					body.append(overlay); 
+				} else if (currentY > startY) {
+					sidebar.removeClass('opened');
+					body.removeClass('sidebar-active');
+					overlay.remove(); 
+				}
+			});
+		}
 	}
+
+	// Обработчик события ресайза окна
+	$(window).on('resize', function () {
+		openedSidebar();
+	});
+
+	openedSidebar();
+
+	function addPrice() {
+		// Получаем все радиобатоны
+		var radioButtons = $('input[type=radio]');
+
+		// Получаем элементы, в которые будем выводить выбранный продукт и цену
+		var priceArea = $('.price-area');
+		var totalPrice = $('.total-price');
+
+		// Обработчик события для радиобатонов
+		function handleRadioChange() {
+			// Получаем выбранный радиобатон
+			var selectedRadio = $(this);
+
+			// Получаем родительскую таблицу
+			var parentTable = selectedRadio.closest('table');
+
+			// Получаем имя и цену выбранного продукта
+			var selectedLabel = selectedRadio.closest('tr').find('label .title').text();
+			var selectedPrice = selectedRadio.closest('tr').find('.price').text();
+
+			// Проверяем, есть ли уже строка для данного радиобатона в priceArea
+			var existingLine = priceArea.find('.price-line:contains("' + selectedLabel + '")');
+			if (existingLine.length > 0) {
+				// Если строка уже существует, обновляем ее цену
+				var existingPriceBox = existingLine.find('.price-box');
+				existingPriceBox.text(selectedPrice);
+			} else {
+				// Создаем новую строку для выбранного продукта и цены
+				var newPriceLine = $('<div class="price-line">' +
+					'<span class="name-box">' + selectedLabel + '</span>' +
+					'<span class="price-box">' + selectedPrice + '</span>' +
+					'</div>');
+
+				// Добавляем новую строку в priceArea
+				priceArea.append(newPriceLine);
+			}
+
+			// Обновляем общую сумму цен всех выбранных радиобатонов
+			var total = 0;
+			radioButtons.each(function () {
+				if ($(this).is(':checked')) {
+					var price = $(this).closest('tr').find('.price').text();
+					total += parseFloat(price.replace('€', '').replace(',', '.'));
+				}
+			});
+			totalPrice.text('€' + total.toFixed(2).replace('.', ','));
+
+			// Обновляем цену выбранного продукта в price-box
+			var selectedPriceBox = existingLine ? existingLine.find('.price-box') : newPriceLine.find('.price-box');
+			selectedPriceBox.text(selectedPrice);
+
+			// Обновляем имя выбранного продукта в name-box
+			var selectedNameBox = existingLine ? existingLine.find('.name-box') : newPriceLine.find('.name-box');
+			selectedNameBox.text(selectedLabel);
+		}
+
+		// Удаляем существующие обработчики событий радиобатонов
+		radioButtons.off('change', handleRadioChange);
+
+		// Добавляем обработчик события для каждого радиобатона
+		radioButtons.on('change', handleRadioChange);
+	}
+	addPrice();
+
 });
