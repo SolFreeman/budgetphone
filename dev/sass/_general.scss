@@ -83,7 +83,7 @@
 // }
 
 .wrapper {
-	overflow: hidden;
+	// overflow: hidden;
 }
 
 input {
@@ -376,6 +376,7 @@ input[type="radio"] {
 			background-color: transparent;
 			border: 1px solid #D5D2D2;
 			border-radius: 2px;
+			min-width: 26px;
 		}
 
 		&:after {

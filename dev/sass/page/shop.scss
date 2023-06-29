@@ -446,7 +446,7 @@
             &:after {
                 position: absolute;
                 font-family: 'icomoon';
-                content: '\e901';
+                content: '\e902';
                 right: -20px;
 
             }
@@ -973,6 +973,44 @@
     left: 0;
     width: 100%;
     overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+
+    @include media('<=desktop') {
+
+        &:after {
+            position: fixed;
+            content: '';
+            right: 0;
+            top: 34px;
+            width: 90px;
+            height: 24px;
+            background: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 1%, rgba(255, 255, 255, 1) 100%);
+            background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 1%, rgba(255, 255, 255, 1) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 1%, rgba(255, 255, 255, 1) 100%);
+            z-index: 1;
+        }
+
+        &:before {
+            position: fixed;
+            content: '';
+            left: 0;
+            top: 34px;
+            width: 90px;
+            height: 24px;
+            background: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 99%, rgba(255, 255, 255, 0) 100%);
+            background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 99%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 99%, rgba(255, 255, 255, 0) 100%);
+            z-index: 1;
+        }
+
+    }
+
 
     @include media('>=desktop') {
         width: 100%;
@@ -1015,7 +1053,7 @@
                 top: calc(50% - 1px);
                 right: calc(100% + 17px);
                 background: #F2F0F0;
-    
+
             }
         }
 
@@ -1105,10 +1143,20 @@
 
     @include media('<=810px') {
         max-width: 810px;
+        padding-bottom: 200px;
     }
 
     .top-box {
         padding: 24px 15px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include media('>=tablet') {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
 
         @include media('>=desktop') {
             padding: 24px 40px 0;
@@ -1158,6 +1206,17 @@
         display: flex;
         justify-content: flex-end;
 
+        @include media('<=810px') {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            z-index: 3;
+            background: $white;
+            width: 100%;
+            border: none;
+            padding: 18px 39px 8px;
+        }
+
         ul {
             margin: 0;
             padding: 0;
@@ -1166,14 +1225,28 @@
             justify-content: space-between;
             width: 100%;
 
+            @include media('<=810px') {
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+
             li {
                 display: flex;
+
+                @include media('<=810px') {
+                    max-width: 343px;
+                    width: 100%;
+                }
 
                 &:first-child {
                     a {
                         background: $white;
                         color: #1A0404;
                         border-color: #D5D2D2;
+
+                        @include media('<=810px') {
+                            border: none;
+                        }
                     }
                 }
 
@@ -1186,6 +1259,11 @@
                     text-decoration: none;
                     border: 1px solid transparent;
                     display: block;
+                    text-align: center;
+
+                    @include media('<=810px') {
+                        width: 100%;
+                    }
 
                     &:hover {
                         opacity: .5;
@@ -1284,8 +1362,10 @@
     height: 100%;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, .8);
+    background: rgba(0, 0, 0, .5);
     transition: all .2s ease-in-out;
+    backdrop-filter: blur(4px);
+    z-index: 1;
 }
 
 .sidebar {
@@ -1300,21 +1380,25 @@
     padding: 20px 24px 14px;
     min-height: 357px;
     background-color: $white;
-    z-index: 1;
+    z-index: 2;
 
     @include media('<=810px') {
         max-width: 810px;
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
-        bottom: -200px;
+        bottom: -172px;
         transition: all .2s ease-in-out;
         padding-top: 40px;
+        z-index: 2;
+        border-radius: 12px 12px 0 0;
+        border-bottom: none;
 
         &:before {
             position: absolute;
             content: '';
             left: 50%;
+            transform: translateX(-50%);
             width: 36px;
             height: 4px;
             top: 12px;
@@ -1322,9 +1406,50 @@
             border-radius: 3px;
         }
 
-        &.opened {
-            bottom: 0;
+        .top-block {
+            display: none;
         }
+
+        &.opened {
+            bottom: 79px;
+
+            .top-block {
+                display: block;
+            }
+
+            .total-area {
+                border-top: 1px solid #F2F0F0;
+                padding: 15px 0 0;
+                font-size: 14px;
+                display: block;
+
+                .line {
+                    margin: 0 0 10px;
+
+                    span {
+                        margin: 0;
+                    }
+                }
+            }
+
+        }
+
+        .total-area {
+            padding: 0 !important;
+            display: flex;
+            justify-content: center;
+            border: none !important;
+            font-weight: 600;
+
+            .line {
+                margin: 0 5px;
+
+                span {
+                    margin: 0 5px 0 0;
+                }
+            }
+        }
+
     }
 
     h3 {
@@ -1333,7 +1458,7 @@
         margin: 0 0 16px;
     }
 
-    .price-box {
+    .price-area {
         font-size: 14px;
 
         .price-line {
@@ -1367,7 +1492,7 @@
     align-items: flex-start;
 
     @include media('<=810px') {
-        padding-bottom: 167px;
+        // padding-bottom: 167px;
     }
 }
 
