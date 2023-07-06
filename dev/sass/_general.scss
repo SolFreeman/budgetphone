@@ -211,30 +211,6 @@ img {
 
 /*3*/
 
-// ol {
-// 	margin: 0;
-// 	padding: 0;
-// 	counter-reset: li;
-
-// 	li {
-// 		list-style: none;
-// 		list-style-position: outside;
-// 		position: relative;
-// 		padding-left: 36px;
-// 		margin-bottom: 18px;
-
-// 		&:before {
-// 			content: counter(li, decimal) ".";
-// 			counter-increment: li;
-// 			margin-left: 0;
-// 			margin-right: 0;
-// 			color: $tertiary-color;
-// 			position: absolute;
-// 			top: 0;
-// 			left: 0
-// 		}
-// 	}
-// }
 
 /*4*/
 
@@ -402,11 +378,10 @@ input[type="checkbox"]+label:before {
 }
 
 input[type=radio]:checked+label {
-	color: $red !important;
+	// color: $red !important;
 
 	&:before {
 		border-radius: 50%;
-		background: url(assets/img/radio.svg) center/14px no-repeat transparent;
 		border-color: $red;
 	}
 
@@ -420,7 +395,6 @@ input[type=radio]:checked+label {
 input:checked+label {
 	&:before {
 		content: '';
-		background: url(assets/img/checkbox.svg) center/12px no-repeat $white;
 		border-color: $red;
 	}
 }

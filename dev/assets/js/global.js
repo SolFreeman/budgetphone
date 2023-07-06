@@ -1,29 +1,6 @@
-$(window).on('load resize', function () {
-	if ($(window).width() < 768) {
-		
-
-	} else {
-		
-	}
-});
-
 jQuery(document).ready(function ($) {
 
-	$(window).on('beforeunload', function () {
-		if ($(window).scrollTop() === 0) {
-			$('.main-header').removeClass('sticky');
-		}
-	});
-	$(".js-select2").select2({
-		closeOnSelect: false,
-		placeholder: "Комплектація",
-		// allowHtml: true,
-		allowClear: true,
-		tags: true // создает новые опции на лету
-	});
-	$(".select_single").select2({
-		theme: 'single'
-	});
+	productAccordeon();
 
 	$('.form-box .text-input').on('input', function () {
 		if ($(this).val().trim() !== '') {
@@ -65,41 +42,97 @@ jQuery(document).ready(function ($) {
 			.closest('div.tabs').find('div.tabs__content').removeClass('active').eq($(this).index()).addClass('active');
 	});
 
+	var steps = $('#checkout-step').steps({
+		showFooterButtons: true,
+		onFinish: function () {
+			alert('Wizard Completed');
+		}
+	});
+
+	steps_api = steps.data('plugin_Steps');
+
+	$('#btnPrev').on('click', function () {
+		steps_api.prev();
+	});
+
+	$('#btnNext').on('click', function () {
+		steps_api.next();
+	});
+
+	$('#btnGoToStep4').on('click', function () {
+		steps_api.setStepIndex(3);
+	});
+
+	selectZero();
 
 
-	let form = $("#checkout-step");
-	form.validate({
-		errorPlacement: function errorPlacement(error, element) { element.before(error); },
-		rules: {
-			confirm: {
-				equalTo: "#password"
+	function selectZero() {
+		// Проверяем, выбран ли любой из радиобатонов
+		if ($('input[name="select"]').is(':checked')) {
+			// Удаляем класс "inactive" у кнопки ".btn-next"
+			$('.btn-next').removeClass('inactive');
+
+			// Удаляем класс "inactive" у элемента ".zero-footer"
+			$('.zero-footer').removeClass('inactive');
+		}
+	}
+
+	function selectLogin() {
+		// Проверяем, выбран ли радиобатон с классом ".next_login"
+		if ($('.next_login').is(':checked')) {
+			// Добавляем класс "hidden" к кнопке с классом "next-simple"
+			$('.next-simple').addClass('hidden');
+
+			// Добавляем класс "visible" к кнопке с классом "next_login"
+			$('.next_login').addClass('visible');
+		} else {
+			$('.next-simple').removeClass('hidden');
+
+			// Удаляем класс "visible" у кнопки с классом "next_login"
+			$('.next_login').removeClass('visible');
+		}
+	}
+
+	// Обработчик события для радиобатонов 
+	$('input.next_login').on('change', function () {
+		selectLogin();
+	});
+
+	// Обработчик события для радиобатонов
+	$('input[name="select"]').on('change', function () {
+		selectZero();
+		selectLogin();
+	});
+
+	$('.btn-next').on('click', function () {
+		$('.tab-zero').addClass('hidden');
+	});
+
+	$('.btn-next').on('click', function () {
+		// Проверяем, выбран ли любой из радиобатонов
+		if ($('input[name="select"]').is(':checked')) {
+
+			// Добавляем класс "hidden" к блоку "div.tab-zero"
+			$('div.tab-zero').addClass('hidden');
+
+			// Удаляем класс "start-page" у блока ".main-checkout"
+			$('.main-checkout').removeClass('start-page');
+
+			// Проверяем выбранный радиобатон по его айди
+			if ($('#telefoonnummer').is(':checked')) {
+				// Добавляем класс "enabled" ко всем блокам с классом "step-tab-single"
+				$('.step-tab-single').addClass('enabled');
+			} else if ($('#nummerreeks').is(':checked')) {
+				// Добавляем класс "enabled" ко всем блокам с классом "step-tab-group"
+				$('.step-tab-group').addClass('enabled');
 			}
+
+			
 		}
 	});
-	form.children("div").steps({
-		headerTag: ".step-item",
-		bodyTag: "section",
-		transitionEffect: "slideLeft",
-		titleTemplate: "<span class='number'>#index#</span> #title#",
-		cssClass: "step-holder",
-		labels: {
-			finish: "Finish",
-			next: "Volgende",
-			previous: "Vorige",
-		},
-		onStepChanging: function (event, currentIndex, newIndex) {
-			form.validate().settings.ignore = ":disabled,:hidden";
-			return form.valid();
-		},
-		onFinishing: function (event, currentIndex) {
-			form.validate().settings.ignore = ":disabled";
-			return form.valid();
-		},
-		onFinished: function (event, currentIndex) {
-			alert("Submitted!");
-		}
-	});
+
 });
+
 
 
 $(document).ready(function () {
@@ -135,10 +168,10 @@ $(document).ready(function () {
 	addSelectedTr();
 
 	$('.mini-form .text-input').on('input', function () {
-		var form = $(this).closest('.mini-form'); 
-		var button = form.find('button'); 
+		var form = $(this).closest('.mini-form');
+		var button = form.find('button');
 
-		
+
 		var allFieldsFilled = form.find('.text-input').filter(function () {
 			return $(this).val().trim() !== '';
 		}).length === form.find('.text-input').length;
@@ -154,20 +187,20 @@ $(document).ready(function () {
 		if ($(window).width() <= 810) {
 			let sidebar = $('.sidebar');
 			let body = $('body');
-			let overlay = $('<div class="overlay"></div>'); 
+			let overlay = $('<div class="overlay"></div>');
 
 
 			sidebar.on('click', function () {
 				sidebar.removeClass('closed').addClass('opened');
 				body.addClass('sidebar-active');
-				body.append(overlay); 
+				body.append(overlay);
 			});
 
 
 			body.on('click', '.overlay', function () {
 				sidebar.removeClass('opened');
 				body.removeClass('sidebar-active');
-				overlay.remove(); 
+				overlay.remove();
 			});
 
 			let startY;
@@ -181,17 +214,16 @@ $(document).ready(function () {
 				if (currentY < startY) {
 					sidebar.addClass('opened');
 					body.addClass('sidebar-active');
-					body.append(overlay); 
+					body.append(overlay);
 				} else if (currentY > startY) {
 					sidebar.removeClass('opened');
 					body.removeClass('sidebar-active');
-					overlay.remove(); 
+					overlay.remove();
 				}
 			});
 		}
 	}
 
-	// Обработчик события ресайза окна
 	$(window).on('resize', function () {
 		openedSidebar();
 	});
@@ -263,3 +295,30 @@ $(document).ready(function () {
 	addPrice();
 
 });
+
+
+function productAccordeon() {
+	var allLi = jQuery('.prod-list li');
+
+	jQuery('.prod-list li > span').each(function () {
+		var doc = jQuery(document),
+			$this = jQuery(this),
+			item = $this.parent('li'),
+			itemFilter = $this.next('.text-prod'),
+			itemParent = item.parents('li');
+
+
+		$this.on('click', function () {
+			if (item.hasClass('active')) {
+				itemFilter.slideUp();
+				item.removeClass('active');
+			}
+			else {
+				allLi.not(itemParent).removeClass('active');
+				allLi.not(itemParent).find('.text-prod').slideUp();
+				itemFilter.slideDown();
+				item.addClass('active');
+			}
+		});
+	});
+}
