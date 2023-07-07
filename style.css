@@ -2059,6 +2059,9 @@ $screen-large 1280px
 .tab-zero .input-line {
   padding: 15px 0; }
 
+.tab-zero.hidden {
+  display: none; }
+
 .tab-zero input[type="checkbox"] + label:after,
 .tab-zero input[type="radio"] + label:after {
   top: calc(50% - 6px); }
