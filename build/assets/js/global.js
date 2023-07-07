@@ -10,6 +10,16 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
+	// let form = $("#checkout-step");
+	// form.validate({
+	// 	errorPlacement: function errorPlacement(error, element) { element.before(error); },
+	// 	rules: {
+	// 		confirm: {
+	// 			equalTo: "#password"
+	// 		}
+	// 	}
+	// });
+
 
 
 	$('a[data-fancybox][data-target].open').on('click', function (e) {
@@ -49,6 +59,8 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
+	
+
 	steps_api = steps.data('plugin_Steps');
 
 	$('#btnPrev').on('click', function () {
@@ -61,6 +73,10 @@ jQuery(document).ready(function ($) {
 
 	$('#btnGoToStep4').on('click', function () {
 		steps_api.setStepIndex(3);
+	});
+
+	$('#checkout-step .step-steps li').on('click', function (e) {
+		e.preventDefault();
 	});
 
 	selectZero();
@@ -127,7 +143,7 @@ jQuery(document).ready(function ($) {
 				$('.step-tab-group').addClass('enabled');
 			}
 
-			
+
 		}
 	});
 

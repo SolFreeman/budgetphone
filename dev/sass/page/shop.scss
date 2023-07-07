@@ -1721,6 +1721,10 @@
         padding: 15px 0;
     }
 
+    &.hidden {
+        display: none;
+    }
+
     input[type="checkbox"]+label:after,
     input[type="radio"]+label:after {
         top: calc(50% - 6px);
