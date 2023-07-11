@@ -378,7 +378,7 @@ $(document).ready(function () {
 			var tableId = parentTable.attr('id');
 	
 			// Очищаем priceArea перед добавлением нового содержимого
-			priceArea.empty();
+			// priceArea.empty();
 	
 			radioButtons.each(function () {
 				var radioButton = $(this);
@@ -386,9 +386,6 @@ $(document).ready(function () {
 				var radioButtonTableId = radioButtonParentTable.attr('id');
 	
 				if (radioButton.is(':checked') && radioButtonTableId === tableId) {
-
-	
-
 	
 					// Проверяем наличие элемента ol.number-list
 					var numberList = radioButton.closest('tr').find('.number-list');
@@ -421,6 +418,62 @@ $(document).ready(function () {
 	}
 	
 	addPrice2();
+	
+
+	function addPrice3() {
+		var radioButtons = $('.step-tab-group .prod-list input[type=radio]');
+		var priceArea = $('.price-area');
+		var totalPrice = $('.total-price');
+	
+		function handleRadioChange() {
+			var selectedRadio = $(this);
+			var parentLi = selectedRadio.closest('li');
+			var selectedNumber = parentLi.find('.selected-number').text().trim();
+	
+			radioButtons.each(function () {
+				var radioButton = $(this);
+				var radioButtonParentLi = radioButton.closest('li');
+	
+				if (radioButton.is(':checked') && radioButtonParentLi.is(parentLi)) {
+					var label = radioButton.closest('label');
+					var selectedLabel = label.find('.title').text().trim();
+	
+					// Ищем совпадение номера телефона в .price-area .number-list
+					var matchingLi = priceArea.find('.number-list li').filter(function () {
+						var liNumber = $(this).find('.title').text().trim();
+						return liNumber === selectedNumber;
+					});
+	
+					if (matchingLi.length > 0) {
+						// Если совпадение найдено, добавляем новое содержимое в существующий li
+						matchingLi.append($('<span class="title"></span>').text(selectedLabel));
+					} else {
+						// Если совпадение не найдено, создаем новый li с выбранным названием
+						var newLi = $('<li></li>').append($('<span class="title"></span>').text(selectedLabel));
+						priceArea.find('.number-list').append(newLi);
+					}
+				}
+			});
+	
+			// Пересчитываем общую цену
+			var total = 0;
+			priceArea.find('.price').each(function () {
+				var price = $(this).text();
+				var numericPrice = parseFloat(price.replace('€', '').replace(',', '.'));
+				if (!isNaN(numericPrice)) {
+					total += numericPrice;
+				}
+			});
+	
+			// Обновляем общую цену в total-price
+			totalPrice.text('€' + total.toFixed(2).replace('.', ','));
+		}
+	
+		// Добавляем обработчик события для каждого радиобатона
+		radioButtons.on('change', handleRadioChange);
+	}
+	
+	addPrice3();
 	
 
 });
