@@ -1042,6 +1042,7 @@
         position: relative;
         white-space: nowrap;
         display: flex;
+        color: #AAA1A1;
 
 
         @include media('>=desktop') {
@@ -1066,9 +1067,7 @@
         }
 
         &.active {
-            a {
-                color: $red;
-            }
+            color: $red;
 
             .number {
                 color: $red;
@@ -1077,9 +1076,7 @@
         }
 
         &.done {
-            a {
-                color: #290000;
-            }
+            color: #290000;
 
             .number {
                 color: #290000;
@@ -1255,6 +1252,9 @@
             border: 1px solid transparent;
             display: block;
             text-align: center;
+            font-size: 16px;
+            font-family: $font-primary;
+            transition: all .2s ease-in-out;
 
             &.prev {
                 background: $white;
@@ -1329,6 +1329,20 @@
                 span {
                     &:after {
                         transform: rotate(-90deg);
+                    }
+                }
+            }
+
+            &.selected {
+                &>span {
+                    &:before {
+                        position: absolute;
+                        content: '';
+                        right: 100px;
+                        top: 29px;
+                        width: 24px;
+                        height: 24px;
+                        background: url('./assets/img/selected.png') no-repeat;
                     }
                 }
             }
@@ -1539,6 +1553,37 @@
             justify-content: space-between;
         }
     }
+
+    .number-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 10px 0;
+            position: relative;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+
+            &:nth-child(even) {
+                &:after {
+                    position: absolute;
+                    content: '';
+                    left: -24px;
+                    right: -24px;
+                    top: 0;
+                    height: 100%;
+                    background: #F2F0F0;
+                    z-index: -1;
+                }
+            }
+
+            &:before {
+                display: none;
+            }
+        }
+    }
 }
 
 .main-checkout {
@@ -1554,7 +1599,7 @@
     }
 }
 
-#abonnement {
+.abonnement {
     label {
         span {
             span {
@@ -1572,7 +1617,7 @@
     }
 }
 
-#hardware {
+.hardware {
     label {
         &>span {
             display: flex;

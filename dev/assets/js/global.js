@@ -59,7 +59,7 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
-	
+
 
 	steps_api = steps.data('plugin_Steps');
 
@@ -152,36 +152,85 @@ jQuery(document).ready(function ($) {
 
 
 $(document).ready(function () {
+
+
 	function filterTableRows() {
 		var selectedValue = $("#netnummer").val();
-		var $tableRows = $("#telefoonnummer tr");
+		var selectedValue2 = $("#netnummer2").val();
+
+		var $tableRows = $(".selectable tr");
+
+		$tableRows.hide(); // Скрываем все строки таблицы
 
 		$tableRows.each(function () {
 			var $row = $(this);
 			var $numberLabel = $row.find("label");
-			var number = $numberLabel.text().trim();
-			var numberCode = number.split(" ")[0];
+			var $numberList = $row.find(".number-list");
 
-			if (numberCode === selectedValue) {
-				$row.show();
+			if ($numberList.length) {
+				// Если есть группа номеров
+				var isMatch = $numberList.find(".title").filter(function () {
+					var number = $(this).text().trim();
+					var numberCode = number.split(" ")[0];
+					return numberCode === selectedValue2;
+				}).length > 0;
+
+				if (isMatch) {
+					$row.show(); // Показываем строку, если найдено совпадение
+				}
 			} else {
-				$row.hide();
+				// Если номер одиночный
+				var number = $numberLabel.find(".title").text().trim();
+				var numberCode = number.split(" ")[0];
+
+				if (numberCode === selectedValue) {
+					$row.show(); // Показываем строку, если найдено совпадение
+				}
 			}
 		});
 	}
 
-	$("#netnummer").on("change", filterTableRows);
+	$(".netnummer").on("change", filterTableRows);
 
 	filterTableRows();
 
-	function addSelectedTr() {
-		$('input[type="radio"]').on('click', function () {
-			$('.table-select tr').removeClass('selected');
 
-			$(this).closest('tr').addClass('selected');
+	function addSelectedTr() {
+		$('input[type="radio"]').on('change', function () {
+			var selectedRadio = $(this);
+			var selectedRow = selectedRadio.closest('tr');
+
+			// Проверяем состояние радиобатона
+			if (selectedRadio.is(':checked')) {
+				// Добавляем класс "selected" выбранному элементу <tr>
+				selectedRow.addClass('selected');
+			} else {
+				// Удаляем класс "selected" у выбранного элемента <tr>
+				selectedRow.removeClass('selected');
+			}
+
+			// Удаляем класс "selected" у соседних элементов <tr>
+			selectedRow.siblings().removeClass('selected');
 		});
 	}
+
 	addSelectedTr();
+
+	function addSelectedLi() {
+		$('.prod-list input[type="radio"]').on('change', function () {
+			var allInputs = $('.prod-list input[type="radio"]');
+			var selectedInputs = allInputs.filter(':checked');
+			var allLi = $('.prod-list li');
+
+			// Удаляем класс "selected" у всех элементов <li>
+			allLi.removeClass('selected');
+
+			// Добавляем класс "selected" только выбранным элементам <li>
+			selectedInputs.closest('li').addClass('selected');
+		});
+	}
+
+	addSelectedLi();
 
 	$('.mini-form .text-input').on('input', function () {
 		var form = $(this).closest('.mini-form');
@@ -248,7 +297,7 @@ $(document).ready(function () {
 
 	function addPrice() {
 		// Получаем все радиобатоны
-		var radioButtons = $('input[type=radio]');
+		var radioButtons = $('.step-tab-single input[type=radio]');
 
 		// Получаем элементы, в которые будем выводить выбранный продукт и цену
 		var priceArea = $('.price-area');
@@ -262,19 +311,22 @@ $(document).ready(function () {
 			// Получаем родительскую таблицу
 			var parentTable = selectedRadio.closest('table');
 
+			// Получаем уникальный идентификатор таблицы
+			var tableId = parentTable.attr('id');
+
 			// Получаем имя и цену выбранного продукта
 			var selectedLabel = selectedRadio.closest('tr').find('label .title').text();
 			var selectedPrice = selectedRadio.closest('tr').find('.price').text();
 
-			// Проверяем, есть ли уже строка для данного радиобатона в priceArea
-			var existingLine = priceArea.find('.price-line:contains("' + selectedLabel + '")');
+			// Проверяем, есть ли уже строка для данного идентификатора таблицы в priceArea
+			var existingLine = priceArea.find('.price-line[data-table-id="' + tableId + '"]');
 			if (existingLine.length > 0) {
 				// Если строка уже существует, обновляем ее цену
 				var existingPriceBox = existingLine.find('.price-box');
 				existingPriceBox.text(selectedPrice);
 			} else {
 				// Создаем новую строку для выбранного продукта и цены
-				var newPriceLine = $('<div class="price-line">' +
+				var newPriceLine = $('<div class="price-line" data-table-id="' + tableId + '">' +
 					'<span class="name-box">' + selectedLabel + '</span>' +
 					'<span class="price-box">' + selectedPrice + '</span>' +
 					'</div>');
@@ -288,7 +340,10 @@ $(document).ready(function () {
 			radioButtons.each(function () {
 				if ($(this).is(':checked')) {
 					var price = $(this).closest('tr').find('.price').text();
-					total += parseFloat(price.replace('€', '').replace(',', '.'));
+					var numericPrice = parseFloat(price.replace('€', '').replace(',', '.'));
+					if (!isNaN(numericPrice)) {
+						total += numericPrice;
+					}
 				}
 			});
 			totalPrice.text('€' + total.toFixed(2).replace('.', ','));
@@ -308,7 +363,65 @@ $(document).ready(function () {
 		// Добавляем обработчик события для каждого радиобатона
 		radioButtons.on('change', handleRadioChange);
 	}
+
 	addPrice();
+
+
+	function addPrice2() {
+		var radioButtons = $('.step-tab-group input[type=radio]');
+		var priceArea = $('.price-area');
+		var totalPrice = $('.total-price');
+	
+		function handleRadioChange() {
+			var selectedRadio = $(this);
+			var parentTable = selectedRadio.closest('table');
+			var tableId = parentTable.attr('id');
+	
+			// Очищаем priceArea перед добавлением нового содержимого
+			priceArea.empty();
+	
+			radioButtons.each(function () {
+				var radioButton = $(this);
+				var radioButtonParentTable = radioButton.closest('table');
+				var radioButtonTableId = radioButtonParentTable.attr('id');
+	
+				if (radioButton.is(':checked') && radioButtonTableId === tableId) {
+
+	
+
+	
+					// Проверяем наличие элемента ol.number-list
+					var numberList = radioButton.closest('tr').find('.number-list');
+					if (numberList.length > 0) {
+						var numberListContent = numberList.html();
+						priceArea.append('<ol class="number-list">' + numberListContent + '</ol>');
+					}
+	
+					// Пересчитываем общую цену
+					var total = 0;
+					priceArea.find('.price').each(function () {
+						var price = $(this).text();
+						var numericPrice = parseFloat(price.replace('€', '').replace(',', '.'));
+						if (!isNaN(numericPrice)) {
+							total += numericPrice;
+						}
+					});
+	
+					// Обновляем общую цену в total-price
+					totalPrice.text('€' + total.toFixed(2).replace('.', ','));
+				}
+			});
+		}
+	
+		// Удаляем существующие обработчики событий радиобатонов
+		radioButtons.off('change', handleRadioChange);
+	
+		// Добавляем обработчик события для каждого радиобатона
+		radioButtons.on('change', handleRadioChange);
+	}
+	
+	addPrice2();
+	
 
 });
 
