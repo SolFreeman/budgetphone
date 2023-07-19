@@ -1652,9 +1652,11 @@ $screen-large 1280px
       border: 1px solid rgba(0, 0, 0, 0.25); }
   .step-tab-panel.active {
     display: block; }
+  .step-tab-panel .step-choose-number,
   .step-tab-panel .step-tab-single,
   .step-tab-panel .step-tab-group {
     display: none; }
+    .step-tab-panel .step-choose-number.enabled,
     .step-tab-panel .step-tab-single.enabled,
     .step-tab-panel .step-tab-group.enabled {
       display: block; }
@@ -1687,7 +1689,8 @@ $screen-large 1280px
       padding-top: 0; }
   #checkout-step h2 {
     font-size: 28px;
-    margin: 0 0 20px; }
+    margin: 0 0 20px;
+    text-transform: capitalize; }
   #checkout-step .label-sel {
     display: block;
     margin: 0 0 5px;
@@ -1704,6 +1707,10 @@ $screen-large 1280px
     border-radius: 4px; }
     #checkout-step .netnummer:focus {
       outline: none; }
+  #checkout-step .attention {
+    display: none; }
+  #checkout-step .no-next:checked + label + .attention {
+    display: block; }
   #checkout-step .step-footer {
     padding: 18px 39px;
     border-top: 1px solid #F2F0F0;
@@ -2072,23 +2079,29 @@ $screen-large 1280px
     .final-box select:focus {
       outline: none; }
 
-.tab-zero .input-line {
+.tab-zero_0 .input-line,
+.tab-zero_1 .input-line {
   padding: 15px 0; }
 
-.tab-zero.hidden {
+.tab-zero_0.hidden,
+.tab-zero_1.hidden {
   display: none; }
 
-.tab-zero input[type=checkbox] + label:after,
-.tab-zero input[type=radio] + label:after {
+.tab-zero_0 input[type=checkbox] + label:after,
+.tab-zero_0 input[type=radio] + label:after,
+.tab-zero_1 input[type=checkbox] + label:after,
+.tab-zero_1 input[type=radio] + label:after {
   top: calc(50% - 6px); }
 
-.tab-zero .zero-footer {
+.tab-zero_0 .zero-footer,
+.tab-zero_1 .zero-footer {
   padding: 18px 39px;
   display: flex;
   justify-content: flex-end;
   position: relative;
   border-top: 1px solid #F2F0F0; }
-  .tab-zero .zero-footer.inactive:before {
+  .tab-zero_0 .zero-footer.inactive:before,
+  .tab-zero_1 .zero-footer.inactive:before {
     position: absolute;
     content: '';
     left: 0;
@@ -2097,10 +2110,16 @@ $screen-large 1280px
     height: 100%;
     background: transparent; }
 
-.tab-zero .selecting {
+.tab-zero_0.hidden,
+.tab-zero_1.hidden {
+  display: none; }
+
+.tab-zero_0 .selecting,
+.tab-zero_1 .selecting {
   padding: 24px 40px 40px; }
 
-.tab-zero .btn-next {
+.tab-zero_0 .btn-next,
+.tab-zero_1 .btn-next {
   padding: 9px 24px;
   background: #F02A2A;
   color: #fff;
@@ -2111,17 +2130,21 @@ $screen-large 1280px
   display: block;
   text-align: center;
   cursor: pointer; }
-  .tab-zero .btn-next.inactive {
+  .tab-zero_0 .btn-next.inactive,
+  .tab-zero_1 .btn-next.inactive {
     background: #fff;
     color: #1A0404;
     border-color: #D5D2D2;
     float: left; }
     @media (max-width: 810px) {
-      .tab-zero .btn-next.inactive {
+      .tab-zero_0 .btn-next.inactive,
+      .tab-zero_1 .btn-next.inactive {
         border: none; } }
-  .tab-zero .btn-next.hidden {
+  .tab-zero_0 .btn-next.hidden,
+  .tab-zero_1 .btn-next.hidden {
     display: none; }
-  .tab-zero .btn-next:hover {
+  .tab-zero_0 .btn-next:hover,
+  .tab-zero_1 .btn-next:hover {
     opacity: .75; }
 
 .start-page .step-footer {
@@ -2191,5 +2214,28 @@ $screen-large 1280px
       font-size: 12px;
       top: 2px;
       left: 0; }
+
+/* style for choose number step */
+.choose-box {
+  padding: 23px 10px 23px 37px; }
+  .choose-box .number-row,
+  .choose-box .row {
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 15px; }
+  .choose-box label {
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: capitalize; }
+  .choose-box .select-amount,
+  .choose-box .numb-input {
+    max-width: 150px;
+    width: 100%;
+    color: #444;
+    padding: 6px 8px 6px 8px;
+    border: 2px solid #ddd; }
 
 /*# sourceMappingURL=style.css.map */
