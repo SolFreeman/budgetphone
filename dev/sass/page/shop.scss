@@ -1143,6 +1143,7 @@
         display: block;
     }
 
+    .step-choose-number,
     .step-tab-single,
     .step-tab-group {
         display: none;
@@ -1192,6 +1193,7 @@
     h2 {
         font-size: 28px;
         margin: 0 0 20px;
+        text-transform: capitalize;
     }
 
     .label-sel {
@@ -1213,6 +1215,18 @@
 
         &:focus {
             outline: none;
+        }
+    }
+
+    .attention {
+        display: none;
+    }
+
+    .no-next:checked {
+        &+label {
+            &+.attention {
+                display: block;
+            }
         }
     }
 
@@ -1761,7 +1775,8 @@
     }
 }
 
-.tab-zero {
+.tab-zero_0,
+.tab-zero_1 {
     .input-line {
         padding: 15px 0;
     }
@@ -1794,6 +1809,10 @@
                 background: transparent;
             }
         }
+    }
+
+    &.hidden {
+        display: none;
     }
 
     .selecting {
@@ -1936,5 +1955,36 @@
                 left: 0
             }
         }
+    }
+}
+
+
+/* style for choose number step */
+.choose-box {
+    padding: 23px 10px 23px 37px;
+
+    .number-row,
+    .row {
+        max-width: 300px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 0 15px;
+    }
+
+    label {
+        font-weight: 700;
+        font-size: 16px;
+        text-transform: capitalize;
+    }
+
+    .select-amount,
+    .numb-input {
+        max-width: 150px;
+        width: 100%;
+        color: #444;
+        padding: 6px 8px 6px 8px;
+        border: 2px solid #ddd;
     }
 }

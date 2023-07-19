@@ -94,56 +94,89 @@ jQuery(document).ready(function ($) {
 	}
 
 	function selectLogin() {
-		// Проверяем, выбран ли радиобатон с классом ".next_login"
-		if ($('.next_login').is(':checked')) {
-			// Добавляем класс "hidden" к кнопке с классом "next-simple"
-			$('.next-simple').addClass('hidden');
-
-			// Добавляем класс "visible" к кнопке с классом "next_login"
-			$('.next_login').addClass('visible');
+		if ($('.tab-zero_1 .next_login').is(':checked')) {
+			$('.tab-zero_1 .next-simple').addClass('hidden');
+			$('.tab-zero_1 .next_login').addClass('visible');
 		} else {
-			$('.next-simple').removeClass('hidden');
-
-			// Удаляем класс "visible" у кнопки с классом "next_login"
-			$('.next_login').removeClass('visible');
+			$('.tab-zero_1 .next-simple').removeClass('hidden');
+			$('.tab-zero_1 .next_login').removeClass('visible');
 		}
 	}
 
-	// Обработчик события для радиобатонов 
-	$('input.next_login').on('change', function () {
+	function selectLoginZero() {
+		// Проверяем, выбран ли радиобатон с классом ".next_sel"
+		if ($('.tab-zero_0 .next_sel').is(':checked')) {
+			$('.tab-zero_0 .zero-footer').removeClass('inactive');
+			$('.tab-zero_0 .btn-next').removeClass('inactive');
+		} else {
+			$('.tab-zero_0 .zero-footer').addClass('inactive');
+			$('.tab-zero_0 .btn-next').addClass('inactive');
+		}
+	}
+	
+	$('input[name="select0"]').on('change', function () {
+		selectLoginZero();
+	});
+
+	$('.tab_zero_1 input.next_login').on('change', function () {
 		selectLogin();
 	});
 
-	// Обработчик события для радиобатонов
 	$('input[name="select"]').on('change', function () {
 		selectZero();
 		selectLogin();
 	});
 
-	$('.btn-next').on('click', function () {
-		$('.tab-zero').addClass('hidden');
+	
+	$('.tab-zero_0 .btn-next').on('click', function () {
+		if ($('input.next_sel').is(':checked')) {
+			$('.tab-zero_0').addClass('hidden');
+			$('.tab-zero_1').removeClass('hidden');
+		}
 	});
 
-	$('.btn-next').on('click', function () {
-		// Проверяем, выбран ли любой из радиобатонов
+	function toggleNumberRows() {
+		var selectAmount = $('.select-amount');
+		var numberRowsContainer = $('.number-rows');
+		var originalNumberRow = $('.number-row').clone();
+		var prevSelectedValue = 1;
+	
+		selectAmount.on('change', function () {
+			var selectedValue = parseInt($(this).val());
+	
+			if (selectedValue < prevSelectedValue) {
+				numberRowsContainer.find('.number-row:gt(' + (selectedValue - 1) + ')').remove();
+			} else {
+				for (var i = prevSelectedValue + 1; i <= selectedValue; i++) {
+					var newNumberRow = originalNumberRow.clone();
+					newNumberRow.find('.number-tel').text(i);
+					numberRowsContainer.append(newNumberRow);
+				}
+			}
+	
+			prevSelectedValue = selectedValue;
+		});
+	}
+	
+	toggleNumberRows();
+	
+	
+
+	$('.tab-zero_1 .btn-next').on('click', function () {
 		if ($('input[name="select"]').is(':checked')) {
 
-			// Добавляем класс "hidden" к блоку "div.tab-zero"
-			$('div.tab-zero').addClass('hidden');
+			$('div.tab-zero_1').addClass('hidden');
 
-			// Удаляем класс "start-page" у блока ".main-checkout"
 			$('.main-checkout').removeClass('start-page');
 
-			// Проверяем выбранный радиобатон по его айди
 			if ($('#telefoonnummer').is(':checked')) {
-				// Добавляем класс "enabled" ко всем блокам с классом "step-tab-single"
 				$('.step-tab-single').addClass('enabled');
 			} else if ($('#nummerreeks').is(':checked')) {
-				// Добавляем класс "enabled" ко всем блокам с классом "step-tab-group"
 				$('.step-tab-group').addClass('enabled');
+			} else if ($('#bestaande').is(':checked')) {
+				console.log(123);
+				$('.step-choose-number').addClass('enabled');
 			}
-
-
 		}
 	});
 
@@ -160,7 +193,7 @@ $(document).ready(function () {
 
 		var $tableRows = $(".selectable tr");
 
-		$tableRows.hide(); // Скрываем все строки таблицы
+		$tableRows.hide(); 
 
 		$tableRows.each(function () {
 			var $row = $(this);
@@ -168,7 +201,7 @@ $(document).ready(function () {
 			var $numberList = $row.find(".number-list");
 
 			if ($numberList.length) {
-				// Если есть группа номеров
+
 				var isMatch = $numberList.find(".title").filter(function () {
 					var number = $(this).text().trim();
 					var numberCode = number.split(" ")[0];
@@ -176,15 +209,15 @@ $(document).ready(function () {
 				}).length > 0;
 
 				if (isMatch) {
-					$row.show(); // Показываем строку, если найдено совпадение
+					$row.show(); 
 				}
 			} else {
-				// Если номер одиночный
+				
 				var number = $numberLabel.find(".title").text().trim();
 				var numberCode = number.split(" ")[0];
 
 				if (numberCode === selectedValue) {
-					$row.show(); // Показываем строку, если найдено совпадение
+					$row.show(); 
 				}
 			}
 		});
@@ -194,22 +227,31 @@ $(document).ready(function () {
 
 	filterTableRows();
 
+	$('.step-btn.next').on('click', function () {
+        var selectAmount = $('.select-amount');
+        var customElement = $('.custom .step-tab-group');
+		var customElement2 = $('.custom .step-tab-single');
+        
+        if (selectAmount.val() > 1) {
+            customElement.addClass('enabled');
+        } else {
+            customElement2.addClass('enabled');
+        }
+    });
+
 
 	function addSelectedTr() {
 		$('input[type="radio"]').on('change', function () {
 			var selectedRadio = $(this);
 			var selectedRow = selectedRadio.closest('tr');
 
-			// Проверяем состояние радиобатона
 			if (selectedRadio.is(':checked')) {
-				// Добавляем класс "selected" выбранному элементу <tr>
+				
 				selectedRow.addClass('selected');
 			} else {
-				// Удаляем класс "selected" у выбранного элемента <tr>
+				
 				selectedRow.removeClass('selected');
-			}
-
-			// Удаляем класс "selected" у соседних элементов <tr>
+			}	
 			selectedRow.siblings().removeClass('selected');
 		});
 	}
@@ -364,7 +406,7 @@ $(document).ready(function () {
 		radioButtons.on('change', handleRadioChange);
 	}
 
-	addPrice();
+	
 
 
 	function addPrice2() {
@@ -417,7 +459,7 @@ $(document).ready(function () {
 		radioButtons.on('change', handleRadioChange);
 	}
 	
-	addPrice2();
+	// addPrice2();
 	
 
 	function addPrice3() {
@@ -473,7 +515,7 @@ $(document).ready(function () {
 		radioButtons.on('change', handleRadioChange);
 	}
 	
-	addPrice3();
+	// addPrice3();
 	
 
 });

@@ -4,7 +4,7 @@
 	<div class="container">
 
 		<main class="main-checkout start-page">
-			<form id="checkout-step" action="#">
+			<div id="checkout-step" action="#">
 				<div>
 					<div class="steps">
 						<ul class="step-steps">
@@ -20,7 +20,43 @@
 						<!-- first step -->
 						<div class="step-tab-panel" data-step="step1">
 							<!-- start 0 tab with select actions -->
-							<div class="tab-zero">
+							<div class="tab-zero_0">
+								<div class="selecting">
+									<h2>make a choice</h2>
+									<div class="input-line">
+										<input type="radio" id="consumer" name="select0" class="next_sel">
+										<label for="consumer">consumer</label>
+									</div>
+									<div class="input-line">
+										<input type="radio" id="business" name="select0" class="next_sel">
+										<label for="business">business</label>
+									</div>
+									<div class="input-line">
+										<input type="radio" id="someone" name="select0" class="no-next">
+										<label for="someone">I want to order on behalf of someone else</label>
+										<div class="attention">
+											<p>Sorry
+												It's not possible to order on behalf of others. And it's not really
+												necessary, either. Our subscriptions are easy to understand and we offer
+												plug-and-play starters packages. So ask your neighbouw/friend to take a
+												look in our webshop. Any questions? Our help desk agents are ready to
+												take your call.</p>
+											<p>Your phone data are a strictly personal business, they can be misused if
+												not protected carefully. That's why we only provide our services and
+												support directly to end users.
+											</p>
+											<p>Are you looking to offer these services as a reseller? We unfortunately
+												do not allow sale through resellers. If we we suspect attempts of
+												reselling, the service will be suspended and administration fees will be
+												charged.</p>
+										</div>
+									</div>
+								</div>
+								<div class="zero-footer inactive">
+									<a href="#" class="btn-next next-simple inactive">Volgende</a>
+								</div>
+							</div>
+							<div class="tab-zero_1 hidden">
 								<div class="selecting">
 									<h2>Maak uw keuze</h2>
 									<div class="input-line">
@@ -32,7 +68,7 @@
 										<label for="nummerreeks">kies een nummerreeks</label>
 									</div>
 									<div class="input-line">
-										<input type="radio" id="bestaande" name="select" class="next_login">
+										<input type="radio" id="bestaande" name="select">
 										<label for="bestaande">porteer je bestaande nummer</label>
 									</div>
 									<div class="input-line">
@@ -67,7 +103,7 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="phone1" class="required" name="phone">
+													<input type="radio" id="phone1" class="required" name="phone" value="20.00" data-phone_num="010 12345670">
 													<label for="phone1"><span class="title">010 12345670</span></label>
 												</div>
 											</td>
@@ -81,7 +117,7 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="phone2" class="required" name="phone">
+													<input type="radio" id="phone2" class="required" name="phone" value="5.00" data-phone_num="010 12345571">
 													<label for="phone2"><span class="title">010 12345571</span></label>
 												</div>
 											</td>
@@ -95,7 +131,7 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="phone3" class="required" name="phone">
+													<input type="radio" id="phone3" class="required" name="phone" value="5.00" data-phone_num="010 12345672">
 													<label for="phone3"><span class="title">010 12345672</span></label>
 												</div>
 											</td>
@@ -109,7 +145,7 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="phone4" class="required" name="phone">
+													<input type="radio" id="phone4" class="required" name="phone" value="5.00" data-phone_num="010 12345673">
 													<label for="phone4"><span class="title">010 12345673</span></label>
 												</div>
 											</td>
@@ -123,7 +159,7 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="phone5" class="required" name="phone">
+													<input type="radio" id="phone5" class="required" name="phone" value="5.00" data-phone_num="000 12345674">
 													<label for="phone5"><span class="title">000 12345674</span></label>
 												</div>
 											</td>
@@ -137,7 +173,7 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="phone6" class="required" name="phone">
+													<input type="radio" id="phone6" class="required" name="phone" value="5.00" data-phone_num="000 12345675">
 													<label for="phone6"><span class="title">000 12345675</span></label>
 												</div>
 											</td>
@@ -151,7 +187,7 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="phone7" class="required" name="phone">
+													<input type="radio" id="phone7" class="required" name="phone" value="5.00" data-phone_num="010 12345676">
 													<label for="phone7"><span class="title">010 12345676</span></label>
 												</div>
 											</td>
@@ -165,7 +201,7 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="phone8" class="required" name="phone">
+													<input type="radio" id="phone8" class="required" name="phone" value="5.00" data-phone_num="010 12345678">
 													<label for="phone8"><span class="title">010 12345678</span></label>
 												</div>
 											</td>
@@ -179,7 +215,7 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="phone9" class="required" name="phone">
+													<input type="radio" id="phone9" class="required" name="phone" value="5.00" data-phone_num="010 12345678">
 													<label for="phone9"><span class="title">010 12345678</span></label>
 												</div>
 											</td>
@@ -193,7 +229,7 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="phone10" class="required" name="phone">
+													<input type="radio" id="phone10" class="required" name="phone" value="5.00" data-phone_num="010 12345678">
 													<label for="phone10"><span class="title">010 12345678</span></label>
 												</div>
 											</td>
@@ -207,7 +243,7 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="phone11" class="required" name="phone">
+													<input type="radio" id="phone11" class="required" name="phone" value="5.00" data-phone_num="010 12345678">
 													<label for="phone11"><span class="title">010 12345678</span></label>
 												</div>
 											</td>
@@ -226,7 +262,7 @@
 								<div class="top-box">
 									<h2>Kies een telefoonnummer bundel </h2>
 								</div>
-								<div class="scroll">
+								<div class="scroll range">
 									<div class="top-box">
 										<label for="netnummer2" class="label-sel">Netnummer</label>
 										<select name="netnummer2" id="netnummer2" class="netnummer">
@@ -242,28 +278,30 @@
 										<tr>
 											<td colspan="2">
 												<div class="input-box">
-													<input type="radio" id="phone15" class="required" name="phone">
+													<input type="radio" id="phone15" class="required" name="phone"
+														value="8.26" data-phone_type="range"
+														data-phone_num="010 5550260, 010 5550261, 010 5550262, 010 5550263, 010 5550264">
 													<label for="phone15" class="selecting-group">
 														<ol class="number-list">
 															<li>
-																<span class="title">010 12345670</span>
-																<span class="price">€8,26</span>
+																<span class="title">010 5550260</span>
+																<span class="price">€8.26</span>
 															</li>
 															<li>
-																<span class="title">010 12345671</span>
-																<span class="price">€8,26</span>
+																<span class="title">010 5550261</span>
+																<span class="price">€8.26</span>
 															</li>
 															<li>
-																<span class="title">010 12345672</span>
-																<span class="price">€8,26</span>
+																<span class="title">010 5550262</span>
+																<span class="price">€8.26</span>
 															</li>
 															<li>
-																<span class="title">010 12345673</span>
-																<span class="price">€8,26</span>
+																<span class="title">010 5550263</span>
+																<span class="price">€8.26</span>
 															</li>
 															<li>
-																<span class="title">010 12345674</span>
-																<span class="price">€8,26</span>
+																<span class="title">010 5550264</span>
+																<span class="price">€8.26</span>
 															</li>
 														</ol>
 													</label>
@@ -273,28 +311,30 @@
 										<tr>
 											<td colspan="2">
 												<div class="input-box">
-													<input type="radio" id="phone16" class="required" name="phone">
+													<input type="radio" id="phone16" class="required" name="phone"
+														value="8.26" data-phone_type="range"
+														data-phone_num="010 6664520, 010 6664521, 010 6664522, 010 6664523, 010 6664524">
 													<label for="phone16" class="selecting-group">
 														<ol class="number-list">
 															<li>
-																<span class="title">010 12345675</span>
-																<span class="price">€8,29</span>
+																<span class="title">010 6664520</span>
+																<span class="price">€8.29</span>
 															</li>
 															<li>
-																<span class="title">010 12345616</span>
-																<span class="price">€8,26</span>
+																<span class="title">010 6664521</span>
+																<span class="price">€8.26</span>
 															</li>
 															<li>
-																<span class="title">010 12345677</span>
-																<span class="price">€7,00</span>
+																<span class="title">010 6664522</span>
+																<span class="price">€8.26</span>
 															</li>
 															<li>
-																<span class="title">010 12345678</span>
-																<span class="price">€8,26</span>
+																<span class="title">010 6664523</span>
+																<span class="price">€8.26</span>
 															</li>
 															<li>
-																<span class="title">010 12345679</span>
-																<span class="price">€8,26</span>
+																<span class="title">010 6664524</span>
+																<span class="price">€8.26</span>
 															</li>
 														</ol>
 													</label>
@@ -304,27 +344,29 @@
 										<tr>
 											<td colspan="2">
 												<div class="input-box">
-													<input type="radio" id="phone17" class="required" name="phone">
+													<input type="radio" id="phone17" class="required" name="phone"
+														value="8.26" data-phone_type="range"
+														data-phone_num="010 3563970, 010 3563971, 010 3563972, 010 3563973, 010 3563974">
 													<label for="phone17" class="selecting-group">
 														<ol class="number-list">
 															<li>
-																<span class="title">010 12345608</span>
+																<span class="title">010 3563970</span>
 																<span class="price">€8,26</span>
 															</li>
 															<li>
-																<span class="title">010 12345619</span>
+																<span class="title">010 3563971</span>
 																<span class="price">€8,26</span>
 															</li>
 															<li>
-																<span class="title">010 12345627</span>
+																<span class="title">010 3563972</span>
 																<span class="price">€8,26</span>
 															</li>
 															<li>
-																<span class="title">010 12345630</span>
+																<span class="title">010 3563973</span>
 																<span class="price">€8,26</span>
 															</li>
 															<li>
-																<span class="title">010 12345645</span>
+																<span class="title">010-3563974</span>
 																<span class="price">€8,26</span>
 															</li>
 														</ol>
@@ -335,7 +377,7 @@
 										<tr>
 											<td colspan="2">
 												<div class="input-box">
-													<input type="radio" id="phone18" class="required" name="phone">
+													<input type="radio" id="phone18" class="required" name="phone" data-phone_type="range" value="8.26" data-phone_num="000 12345658, 000 12345669, 000 12345677, 000 12345680, 000 12345695">
 													<label for="phone18" class="selecting-group">
 														<ol class="number-list">
 															<li>
@@ -366,6 +408,35 @@
 									</table>
 								</div>
 							</div>
+							<!-- first other number tab-->
+							<div class="step-choose-number">
+								<div class="top-box">
+									<h2>Kies een telefoonnummer bundel </h2>
+								</div>
+								<div class="choose-box">
+									<div class="row">
+										<label for="amount">amount</label>
+										<select name="amount" id="amount" class="select-amount">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+										</select>
+									</div>
+									<div class="row">
+										<label for="date">porting date</label>
+										<select name="date" id="date" class="select-amount">
+											<option value="2023-07-26">2023-07-26</option>
+										</select>
+									</div>
+									<div class="number-rows">
+										<div class="number-row">
+											<label for="number1">phone number <span class="number-tel">1</span></label>
+											<input type="tel" class="numb-input">
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 						<!-- second step -->
 						<div class="step-tab-panel custom" data-step="step2">
@@ -378,7 +449,8 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="Fax2Email" class="required" name="abonnement2">
+													<input type="radio" id="Fax2Email" class="required"
+														name="abonnement2">
 													<label for="Fax2Email">
 														<span>
 															<span class="title">Fax2Email</span>
@@ -394,7 +466,8 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="basic-business" class="required" name="abonnement2">
+													<input type="radio" id="basic-business" class="required"
+														name="abonnement2">
 													<label for="basic-business">
 														<span>
 															<span class="title">Budgetphone Basic Business</span>
@@ -410,11 +483,13 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="free-business" class="required" name="abonnement2">
+													<input type="radio" id="free-business" class="required"
+														name="abonnement2">
 													<label for="free-business">
 														<span>
 															<span class="title">Budgetphone Free Business</span>
-															<span>Gratis bellen naar NL mobiel en vaste nummers in Europa</span>
+															<span>Gratis bellen naar NL mobiel en vaste nummers in
+																Europa</span>
 														</span>
 													</label>
 												</div>
@@ -426,11 +501,13 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="basic-network" class="required" name="abonnement2">
+													<input type="radio" id="basic-network" class="required"
+														name="abonnement2">
 													<label for="basic-network">
 														<span>
 															<span class="title">Budgetphone Basic Network</span>
-															<span>Inkomend nummer met online centrale, kan gebundeld met free
+															<span>Inkomend nummer met online centrale, kan gebundeld met
+																free
 																network</span>
 														</span>
 													</label>
@@ -443,11 +520,13 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="free-network" class="required" name="abonnement2">
+													<input type="radio" id="free-network" class="required"
+														name="abonnement2">
 													<label for="free-network">
 														<span>
 															<span class="title">Budgetphone Free Network</span>
-															<span>Gratis bellen naar NL mobiel en vaste nummers in Europa, met
+															<span>Gratis bellen naar NL mobiel en vaste nummers in
+																Europa, met
 																online centrale</span>
 														</span>
 													</label>
@@ -464,17 +543,20 @@
 							<div class="step-tab-group">
 								<ul class="prod-list">
 									<li>
-										<span>Kies een abonnement voor <span class="selected-number">010 12345670</span></span>
+										<span>Kies een abonnement voor <span class="selected-number">010
+												12345670</span></span>
 										<div class="text-prod">
 											<table id="abonnement-3" class="table-select abonnement">
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Fax2Email2" class="required" name="abonnement2">
+															<input type="radio" id="Fax2Email2" class="required"
+																name="abonnement2">
 															<label for="Fax2Email2">
 																<span>
 																	<span class="title label-title">Fax2Email</span>
-																	<span>Fax ontvangen in uw inbox 34,50 per jaar</span>
+																	<span>Fax ontvangen in uw inbox 34,50 per
+																		jaar</span>
 																</span>
 															</label>
 														</div>
@@ -486,10 +568,12 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="basic-business2" class="required" name="abonnement2">
+															<input type="radio" id="basic-business2" class="required"
+																name="abonnement2">
 															<label for="basic-business2">
 																<span>
-																	<span class="title label-title">Budgetphone Basic Business</span>
+																	<span class="title label-title">Budgetphone Basic
+																		Business</span>
 																	<span>Betalen naar verbruik</span>
 																</span>
 															</label>
@@ -502,11 +586,14 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="free-business2" class="required" name="abonnement2">
+															<input type="radio" id="free-business2" class="required"
+																name="abonnement2">
 															<label for="free-business2">
 																<span>
-																	<span class="title label-title">Budgetphone Free Business</span>
-																	<span>Gratis bellen naar NL mobiel en vaste nummers in Europa</span>
+																	<span class="title label-title">Budgetphone Free
+																		Business</span>
+																	<span>Gratis bellen naar NL mobiel en vaste nummers
+																		in Europa</span>
 																</span>
 															</label>
 														</div>
@@ -518,11 +605,14 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="basic-network2" class="required" name="abonnement2">
+															<input type="radio" id="basic-network2" class="required"
+																name="abonnement2">
 															<label for="basic-network2">
 																<span>
-																	<span class="title label-title">Budgetphone Basic Network</span>
-																	<span>Inkomend nummer met online centrale, kan gebundeld met free
+																	<span class="title label-title">Budgetphone Basic
+																		Network</span>
+																	<span>Inkomend nummer met online centrale, kan
+																		gebundeld met free
 																		network</span>
 																</span>
 															</label>
@@ -535,11 +625,14 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="free-network2" class="required" name="abonnement2">
+															<input type="radio" id="free-network2" class="required"
+																name="abonnement2">
 															<label for="free-network2">
 																<span>
-																	<span class="title label-title">Budgetphone Free Network</span>
-																	<span>Gratis bellen naar NL mobiel en vaste nummers in Europa, met
+																	<span class="title label-title">Budgetphone Free
+																		Network</span>
+																	<span>Gratis bellen naar NL mobiel en vaste nummers
+																		in Europa, met
 																		online centrale</span>
 																</span>
 															</label>
@@ -553,17 +646,20 @@
 										</div>
 									</li>
 									<li>
-										<span>Kies een abonnement voor <span class="selected-number">010 12345671</span></span>
+										<span>Kies een abonnement voor <span class="selected-number">010
+												12345671</span></span>
 										<div class="text-prod">
 											<table id="abonnement-2" class="table-select abonnement">
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Fax2Email3" class="required" name="abonnement23">
+															<input type="radio" id="Fax2Email3" class="required"
+																name="abonnement23">
 															<label for="Fax2Email3">
 																<span>
 																	<span class="title label-title">Fax2Email</span>
-																	<span>Fax ontvangen in uw inbox 34,50 per jaar</span>
+																	<span>Fax ontvangen in uw inbox 34,50 per
+																		jaar</span>
 																</span>
 															</label>
 														</div>
@@ -575,10 +671,12 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="basic-business3" class="required" name="abonnement23">
+															<input type="radio" id="basic-business3" class="required"
+																name="abonnement23">
 															<label for="basic-business3">
 																<span>
-																	<span class="title label-title">Budgetphone Basic Business</span>
+																	<span class="title label-title">Budgetphone Basic
+																		Business</span>
 																	<span>Betalen naar verbruik</span>
 																</span>
 															</label>
@@ -591,11 +689,14 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="free-business3" class="required" name="abonnement23">
+															<input type="radio" id="free-business3" class="required"
+																name="abonnement23">
 															<label for="free-business3">
 																<span>
-																	<span class="title label-title">Budgetphone Free Business</span>
-																	<span>Gratis bellen naar NL mobiel en vaste nummers in Europa</span>
+																	<span class="title label-title">Budgetphone Free
+																		Business</span>
+																	<span>Gratis bellen naar NL mobiel en vaste nummers
+																		in Europa</span>
 																</span>
 															</label>
 														</div>
@@ -607,11 +708,14 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="basic-network3" class="required" name="abonnement23">
+															<input type="radio" id="basic-network3" class="required"
+																name="abonnement23">
 															<label for="basic-network3">
 																<span>
-																	<span class="title label-title">Budgetphone Basic Network</span>
-																	<span>Inkomend nummer met online centrale, kan gebundeld met free
+																	<span class="title label-title">Budgetphone Basic
+																		Network</span>
+																	<span>Inkomend nummer met online centrale, kan
+																		gebundeld met free
 																		network</span>
 																</span>
 															</label>
@@ -624,11 +728,14 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="free-network3" class="required" name="abonnement23">
+															<input type="radio" id="free-network3" class="required"
+																name="abonnement23">
 															<label for="free-network3">
 																<span>
-																	<span class="title label-title">Budgetphone Free Network</span>
-																	<span>Gratis bellen naar NL mobiel en vaste nummers in Europa, met
+																	<span class="title label-title">Budgetphone Free
+																		Network</span>
+																	<span>Gratis bellen naar NL mobiel en vaste nummers
+																		in Europa, met
 																		online centrale</span>
 																</span>
 															</label>
@@ -642,17 +749,20 @@
 										</div>
 									</li>
 									<li>
-										<span>Kies een abonnement voor <span class="selected-number">010 12345672</span></span>
+										<span>Kies een abonnement voor <span class="selected-number">010
+												12345672</span></span>
 										<div class="text-prod">
 											<table id="abonnement-4" class="table-select abonnement">
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Fax2Email4" class="required" name="abonnement4">
+															<input type="radio" id="Fax2Email4" class="required"
+																name="abonnement4">
 															<label for="Fax2Email4">
 																<span>
 																	<span class="title label-title">Fax2Email</span>
-																	<span>Fax ontvangen in uw inbox 34,50 per jaar</span>
+																	<span>Fax ontvangen in uw inbox 34,50 per
+																		jaar</span>
 																</span>
 															</label>
 														</div>
@@ -664,10 +774,12 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="basic-business4" class="required" name="abonnement4">
+															<input type="radio" id="basic-business4" class="required"
+																name="abonnement4">
 															<label for="basic-business4">
 																<span>
-																	<span class="title label-title">Budgetphone Basic Business</span>
+																	<span class="title label-title">Budgetphone Basic
+																		Business</span>
 																	<span>Betalen naar verbruik</span>
 																</span>
 															</label>
@@ -680,11 +792,14 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="free-business4" class="required" name="abonnement4">
+															<input type="radio" id="free-business4" class="required"
+																name="abonnement4">
 															<label for="free-business4">
 																<span>
-																	<span class="title label-title">Budgetphone Free Business</span>
-																	<span>Gratis bellen naar NL mobiel en vaste nummers in Europa</span>
+																	<span class="title label-title">Budgetphone Free
+																		Business</span>
+																	<span>Gratis bellen naar NL mobiel en vaste nummers
+																		in Europa</span>
 																</span>
 															</label>
 														</div>
@@ -696,11 +811,14 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="basic-network4" class="required" name="abonnement4">
+															<input type="radio" id="basic-network4" class="required"
+																name="abonnement4">
 															<label for="basic-network4">
 																<span>
-																	<span class="title label-title">Budgetphone Basic Network</span>
-																	<span>Inkomend nummer met online centrale, kan gebundeld met free
+																	<span class="title label-title">Budgetphone Basic
+																		Network</span>
+																	<span>Inkomend nummer met online centrale, kan
+																		gebundeld met free
 																		network</span>
 																</span>
 															</label>
@@ -713,11 +831,14 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="free-network4" class="required" name="abonnement4">
+															<input type="radio" id="free-network4" class="required"
+																name="abonnement4">
 															<label for="free-network4">
 																<span>
-																	<span class="title label-title">Budgetphone Free Network</span>
-																	<span>Gratis bellen naar NL mobiel en vaste nummers in Europa, met
+																	<span class="title label-title">Budgetphone Free
+																		Network</span>
+																	<span>Gratis bellen naar NL mobiel en vaste nummers
+																		in Europa, met
 																		online centrale</span>
 																</span>
 															</label>
@@ -731,17 +852,20 @@
 										</div>
 									</li>
 									<li>
-										<span>Kies een abonnement voor <span class="selected-number">010 12345673</span></span>
+										<span>Kies een abonnement voor <span class="selected-number">010
+												12345673</span></span>
 										<div class="text-prod">
 											<table id="abonnement-5" class="table-select abonnement">
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Fax2Email5" class="required" name="abonnement5">
+															<input type="radio" id="Fax2Email5" class="required"
+																name="abonnement5">
 															<label for="Fax2Email5">
 																<span>
 																	<span class="title label-title">Fax2Email</span>
-																	<span>Fax ontvangen in uw inbox 34,50 per jaar</span>
+																	<span>Fax ontvangen in uw inbox 34,50 per
+																		jaar</span>
 																</span>
 															</label>
 														</div>
@@ -753,10 +877,12 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="basic-business5" class="required" name="abonnement5">
+															<input type="radio" id="basic-business5" class="required"
+																name="abonnement5">
 															<label for="basic-business5">
 																<span>
-																	<span class="title label-title">Budgetphone Basic Business</span>
+																	<span class="title label-title">Budgetphone Basic
+																		Business</span>
 																	<span>Betalen naar verbruik</span>
 																</span>
 															</label>
@@ -769,11 +895,14 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="free-business5" class="required" name="abonnement5">
+															<input type="radio" id="free-business5" class="required"
+																name="abonnement5">
 															<label for="free-business5">
 																<span>
-																	<span class="title label-title">Budgetphone Free Business</span>
-																	<span>Gratis bellen naar NL mobiel en vaste nummers in Europa</span>
+																	<span class="title label-title">Budgetphone Free
+																		Business</span>
+																	<span>Gratis bellen naar NL mobiel en vaste nummers
+																		in Europa</span>
 																</span>
 															</label>
 														</div>
@@ -785,11 +914,14 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="basic-network5" class="required" name="abonnement5">
+															<input type="radio" id="basic-network5" class="required"
+																name="abonnement5">
 															<label for="basic-network5">
 																<span>
-																	<span class="title label-title">Budgetphone Basic Network</span>
-																	<span>Inkomend nummer met online centrale, kan gebundeld met free
+																	<span class="title label-title">Budgetphone Basic
+																		Network</span>
+																	<span>Inkomend nummer met online centrale, kan
+																		gebundeld met free
 																		network</span>
 																</span>
 															</label>
@@ -802,11 +934,117 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="free-network5" class="required" name="abonnement5">
+															<input type="radio" id="free-network5" class="required"
+																name="abonnement5">
 															<label for="free-network5">
 																<span>
-																	<span class="title label-title">Budgetphone Free Network</span>
-																	<span>Gratis bellen naar NL mobiel en vaste nummers in Europa, met
+																	<span class="title label-title">Budgetphone Free
+																		Network</span>
+																	<span>Gratis bellen naar NL mobiel en vaste nummers
+																		in Europa, met
+																		online centrale</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€16,12 p/m</span>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</li>
+									<li>
+										<span>Kies een abonnement voor <span class="selected-number">010
+												12345673</span></span>
+										<div class="text-prod">
+											<table id="abonnement-5" class="table-select abonnement">
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="Fax2Emai75" class="required"
+																name="abonnement75">
+															<label for="Fax2Emai75">
+																<span>
+																	<span class="title label-title">Fax2Email</span>
+																	<span>Fax ontvangen in uw inbox 34,50 per
+																		jaar</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€2,27 p/m</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="basic-business76" class="required"
+																name="abonnement75">
+															<label for="basic-business76">
+																<span>
+																	<span class="title label-title">Budgetphone Basic
+																		Business</span>
+																	<span>Betalen naar verbruik</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€3,72 p/m</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="free-business77" class="required"
+																name="abonnement75">
+															<label for="free-business77">
+																<span>
+																	<span class="title label-title">Budgetphone Free
+																		Business</span>
+																	<span>Gratis bellen naar NL mobiel en vaste nummers
+																		in Europa</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€14,46 p/m</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="basic-network78" class="required"
+																name="abonnement75">
+															<label for="basic-network78">
+																<span>
+																	<span class="title label-title">Budgetphone Basic
+																		Network</span>
+																	<span>Inkomend nummer met online centrale, kan
+																		gebundeld met free
+																		network</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€4,55 p/m</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="free-network79" class="required"
+																name="abonnement75">
+															<label for="free-network79">
+																<span>
+																	<span class="title label-title">Budgetphone Free
+																		Network</span>
+																	<span>Gratis bellen naar NL mobiel en vaste nummers
+																		in Europa, met
 																		online centrale</span>
 																</span>
 															</label>
@@ -822,6 +1060,8 @@
 								</ul>
 							</div>
 						</div>
+
+
 						<!-- tertiary step -->
 						<div class="step-tab-panel custom" data-step="step3">
 							<div class="step-tab-single">
@@ -833,7 +1073,8 @@
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="Grandstream" class="required" name="hardware">
+													<input type="radio" id="Grandstream" class="required"
+														name="hardware">
 													<label for="Grandstream">
 														<span>
 															<span class="img-holder">
@@ -849,13 +1090,15 @@
 												<span class="price">€107,03 </span>
 											</td>
 											<td>
-												<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+												<a href="#shop-telefoons-1" data-fancybox="group"
+													class="more-link">Bekijken</a>
 											</td>
 										</tr>
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="Grandstream2" class="required" name="hardware">
+													<input type="radio" id="Grandstream2" class="required"
+														name="hardware">
 													<label for="Grandstream2">
 														<span>
 															<span class="img-holder">
@@ -871,13 +1114,15 @@
 												<span class="price">€160,33 </span>
 											</td>
 											<td>
-												<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+												<a href="#shop-telefoons-2" data-fancybox="group"
+													class="more-link">Bekijken</a>
 											</td>
 										</tr>
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="Grandstream3" class="required" name="hardware">
+													<input type="radio" id="Grandstream3" class="required"
+														name="hardware">
 													<label for="Grandstream3">
 														<span>
 															<span class="img-holder">
@@ -893,13 +1138,15 @@
 												<span class="price">€107,03 </span>
 											</td>
 											<td>
-												<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+												<a href="#shop-telefoons-7" data-fancybox="group"
+													class="more-link">Bekijken</a>
 											</td>
 										</tr>
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="Grandstream4" class="required" name="hardware">
+													<input type="radio" id="Grandstream4" class="required"
+														name="hardware">
 													<label for="Grandstream4">
 														<span>
 															<span class="img-holder">
@@ -915,13 +1162,15 @@
 												<span class="price">€107,03 </span>
 											</td>
 											<td>
-												<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+												<a href="#shop-telefoons-1" data-fancybox="group"
+													class="more-link">Bekijken</a>
 											</td>
 										</tr>
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="Grandstream5" class="required" name="hardware">
+													<input type="radio" id="Grandstream5" class="required"
+														name="hardware">
 													<label for="Grandstream5">
 														<span>
 															<span class="img-holder">
@@ -937,13 +1186,15 @@
 												<span class="price">€160,33 </span>
 											</td>
 											<td>
-												<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+												<a href="#shop-telefoons-2" data-fancybox="group"
+													class="more-link">Bekijken</a>
 											</td>
 										</tr>
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="Grandstream6" class="required" name="hardware">
+													<input type="radio" id="Grandstream6" class="required"
+														name="hardware">
 													<label for="Grandstream6">
 														<span>
 															<span class="img-holder">
@@ -959,13 +1210,15 @@
 												<span class="price">€107,03 </span>
 											</td>
 											<td>
-												<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+												<a href="#shop-telefoons-7" data-fancybox="group"
+													class="more-link">Bekijken</a>
 											</td>
 										</tr>
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="Grandstream7" class="required" name="hardware">
+													<input type="radio" id="Grandstream7" class="required"
+														name="hardware">
 													<label for="Grandstream7">
 														<span>
 															<span class="img-holder">
@@ -981,13 +1234,15 @@
 												<span class="price">€107,03 </span>
 											</td>
 											<td>
-												<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+												<a href="#shop-telefoons-1" data-fancybox="group"
+													class="more-link">Bekijken</a>
 											</td>
 										</tr>
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="Grandstream8" class="required" name="hardware">
+													<input type="radio" id="Grandstream8" class="required"
+														name="hardware">
 													<label for="Grandstream8">
 														<span>
 															<span class="img-holder">
@@ -1003,13 +1258,15 @@
 												<span class="price">€160,33 </span>
 											</td>
 											<td>
-												<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+												<a href="#shop-telefoons-2" data-fancybox="group"
+													class="more-link">Bekijken</a>
 											</td>
 										</tr>
 										<tr>
 											<td>
 												<div class="input-box">
-													<input type="radio" id="Grandstream9" class="required" name="hardware">
+													<input type="radio" id="Grandstream9" class="required"
+														name="hardware">
 													<label for="Grandstream9">
 														<span>
 															<span class="img-holder">
@@ -1025,7 +1282,8 @@
 												<span class="price">€107,03 </span>
 											</td>
 											<td>
-												<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+												<a href="#shop-telefoons-7" data-fancybox="group"
+													class="more-link">Bekijken</a>
 											</td>
 										</tr>
 									</table>
@@ -1041,13 +1299,15 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream20" class="required" name="hardware1">
+															<input type="radio" id="Grandstream20" class="required"
+																name="hardware1">
 															<label for="Grandstream20">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img01.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1057,19 +1317,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream15" class="required" name="hardware1">
+															<input type="radio" id="Grandstream15" class="required"
+																name="hardware1">
 															<label for="Grandstream15">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img02.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1079,19 +1342,22 @@
 														<span class="price price-label">€160,33 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream23" class="required" name="hardware1">
+															<input type="radio" id="Grandstream23" class="required"
+																name="hardware1">
 															<label for="Grandstream23">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img07.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1101,19 +1367,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream24" class="required" name="hardware1">
+															<input type="radio" id="Grandstream24" class="required"
+																name="hardware1">
 															<label for="Grandstream24">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img01.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1123,19 +1392,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream25" class="required" name="hardware1">
+															<input type="radio" id="Grandstream25" class="required"
+																name="hardware1">
 															<label for="Grandstream25">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img02.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1145,19 +1417,22 @@
 														<span class="price price-label">€160,33 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream56" class="required" name="hardware1">
+															<input type="radio" id="Grandstream56" class="required"
+																name="hardware1">
 															<label for="Grandstream56">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img07.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1167,19 +1442,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream27" class="required" name="hardware1">
+															<input type="radio" id="Grandstream27" class="required"
+																name="hardware1">
 															<label for="Grandstream27">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img01.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1189,19 +1467,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream28" class="required" name="hardware1">
+															<input type="radio" id="Grandstream28" class="required"
+																name="hardware1">
 															<label for="Grandstream28">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img02.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1211,19 +1492,22 @@
 														<span class="price price-label">€160,33 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream29" class="required" name="hardware1">
+															<input type="radio" id="Grandstream29" class="required"
+																name="hardware1">
 															<label for="Grandstream29">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img07.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1233,7 +1517,8 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 											</table>
@@ -1246,13 +1531,15 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream58" class="required" name="hardware2">
+															<input type="radio" id="Grandstream58" class="required"
+																name="hardware2">
 															<label for="Grandstream58">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img01.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1262,19 +1549,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream57" class="required" name="hardware2">
+															<input type="radio" id="Grandstream57" class="required"
+																name="hardware2">
 															<label for="Grandstream57">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img02.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1284,19 +1574,22 @@
 														<span class="price price-label">€160,33 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream86" class="required" name="hardware2">
+															<input type="radio" id="Grandstream86" class="required"
+																name="hardware2">
 															<label for="Grandstream86">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img07.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1306,19 +1599,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream55" class="required" name="hardware2">
+															<input type="radio" id="Grandstream55" class="required"
+																name="hardware2">
 															<label for="Grandstream55">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img01.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1328,19 +1624,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream54" class="required" name="hardware2">
+															<input type="radio" id="Grandstream54" class="required"
+																name="hardware2">
 															<label for="Grandstream54">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img02.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1350,19 +1649,22 @@
 														<span class="price price-label">€160,33 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream53" class="required" name="hardware2">
+															<input type="radio" id="Grandstream53" class="required"
+																name="hardware2">
 															<label for="Grandstream53">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img07.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1372,19 +1674,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream52" class="required" name="hardware2">
+															<input type="radio" id="Grandstream52" class="required"
+																name="hardware2">
 															<label for="Grandstream52">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img01.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1394,19 +1699,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream51" class="required" name="hardware2">
+															<input type="radio" id="Grandstream51" class="required"
+																name="hardware2">
 															<label for="Grandstream51">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img02.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1416,19 +1724,22 @@
 														<span class="price price-label">€160,33 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream50" class="required" name="hardware2">
+															<input type="radio" id="Grandstream50" class="required"
+																name="hardware2">
 															<label for="Grandstream50">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img07.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1438,7 +1749,8 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 											</table>
@@ -1451,13 +1763,15 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream48" class="required" name="hardware3">
+															<input type="radio" id="Grandstream48" class="required"
+																name="hardware3">
 															<label for="Grandstream48">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img01.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1467,19 +1781,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream47" class="required" name="hardware3">
+															<input type="radio" id="Grandstream47" class="required"
+																name="hardware3">
 															<label for="Grandstream47">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img02.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1489,19 +1806,22 @@
 														<span class="price price-label">€160,33 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream46" class="required" name="hardware3">
+															<input type="radio" id="Grandstream46" class="required"
+																name="hardware3">
 															<label for="Grandstream46">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img07.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1511,19 +1831,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream45" class="required" name="hardware3">
+															<input type="radio" id="Grandstream45" class="required"
+																name="hardware3">
 															<label for="Grandstream45">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img01.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1533,19 +1856,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream44" class="required" name="hardware3">
+															<input type="radio" id="Grandstream44" class="required"
+																name="hardware3">
 															<label for="Grandstream44">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img02.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1555,19 +1881,22 @@
 														<span class="price price-label">€160,33 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream43" class="required" name="hardware3">
+															<input type="radio" id="Grandstream43" class="required"
+																name="hardware3">
 															<label for="Grandstream43">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img07.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1577,19 +1906,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream42" class="required" name="hardware3">
+															<input type="radio" id="Grandstream42" class="required"
+																name="hardware3">
 															<label for="Grandstream42">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img01.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1599,19 +1931,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream41" class="required" name="hardware3">
+															<input type="radio" id="Grandstream41" class="required"
+																name="hardware3">
 															<label for="Grandstream41">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img02.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1621,19 +1956,22 @@
 														<span class="price price-label">€160,33 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream40" class="required" name="hardware3">
+															<input type="radio" id="Grandstream40" class="required"
+																name="hardware3">
 															<label for="Grandstream40">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img07.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1643,7 +1981,8 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 											</table>
@@ -1656,13 +1995,15 @@
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream37" class="required" name="hardware4">
+															<input type="radio" id="Grandstream37" class="required"
+																name="hardware4">
 															<label for="Grandstream37">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img01.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1672,19 +2013,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream36" class="required" name="hardware4">
+															<input type="radio" id="Grandstream36" class="required"
+																name="hardware4">
 															<label for="Grandstream36">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img02.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1694,19 +2038,22 @@
 														<span class="price price-label">€160,33 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream35" class="required" name="hardware4">
+															<input type="radio" id="Grandstream35" class="required"
+																name="hardware4">
 															<label for="Grandstream35">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img07.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1716,19 +2063,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream34" class="required" name="hardware4">
+															<input type="radio" id="Grandstream34" class="required"
+																name="hardware4">
 															<label for="Grandstream34">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img01.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1738,19 +2088,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream33" class="required" name="hardware4">
+															<input type="radio" id="Grandstream33" class="required"
+																name="hardware4">
 															<label for="Grandstream33">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img02.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1760,19 +2113,22 @@
 														<span class="price price-label">€160,33 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream26" class="required" name="hardware4">
+															<input type="radio" id="Grandstream26" class="required"
+																name="hardware4">
 															<label for="Grandstream26">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img07.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1782,19 +2138,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream32" class="required" name="hardware4">
+															<input type="radio" id="Grandstream32" class="required"
+																name="hardware4">
 															<label for="Grandstream32">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img01.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1804,19 +2163,22 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-1" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream31" class="required" name="hardware4">
+															<input type="radio" id="Grandstream31" class="required"
+																name="hardware4">
 															<label for="Grandstream31">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img02.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1826,19 +2188,22 @@
 														<span class="price price-label">€160,33 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-2" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<div class="input-box">
-															<input type="radio" id="Grandstream30" class="required" name="hardware4">
+															<input type="radio" id="Grandstream30" class="required"
+																name="hardware4">
 															<label for="Grandstream30">
 																<span>
 																	<span class="img-holder">
 																		<img src="./assets/img/img07.png" alt="">
 																	</span>
-																	<span class="title label-title">Grandstream Dect basis station met
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
 																		handset</span>
 																</span>
 															</label>
@@ -1848,7 +2213,240 @@
 														<span class="price price-label">€107,03 </span>
 													</td>
 													<td>
-														<a href="#shop-telefoons-7" data-fancybox="group" class="more-link">Bekijken</a>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</li>
+									<li>
+										<span>Kies een hardware voor 010-12345678</span>
+										<div class="text-prod">
+											<table id="hardware-5" class="table-select hardware">
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="Grandstream87" class="required"
+																name="hardware87">
+															<label for="Grandstream87">
+																<span>
+																	<span class="img-holder">
+																		<img src="./assets/img/img01.png" alt="">
+																	</span>
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
+																		handset</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€107,03 </span>
+													</td>
+													<td>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="Grandstream88" class="required"
+																name="hardware87">
+															<label for="Grandstream88">
+																<span>
+																	<span class="img-holder">
+																		<img src="./assets/img/img02.png" alt="">
+																	</span>
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
+																		handset</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€160,33 </span>
+													</td>
+													<td>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="Grandstream89" class="required"
+																name="hardware87">
+															<label for="Grandstream89">
+																<span>
+																	<span class="img-holder">
+																		<img src="./assets/img/img07.png" alt="">
+																	</span>
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
+																		handset</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€107,03 </span>
+													</td>
+													<td>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="Grandstream90" class="required"
+																name="hardware87">
+															<label for="Grandstream90">
+																<span>
+																	<span class="img-holder">
+																		<img src="./assets/img/img01.png" alt="">
+																	</span>
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
+																		handset</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€107,03 </span>
+													</td>
+													<td>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="Grandstream91" class="required"
+																name="hardware87">
+															<label for="Grandstream91">
+																<span>
+																	<span class="img-holder">
+																		<img src="./assets/img/img02.png" alt="">
+																	</span>
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
+																		handset</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€160,33 </span>
+													</td>
+													<td>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="Grandstream92" class="required"
+																name="hardware87">
+															<label for="Grandstream92">
+																<span>
+																	<span class="img-holder">
+																		<img src="./assets/img/img07.png" alt="">
+																	</span>
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
+																		handset</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€107,03 </span>
+													</td>
+													<td>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="Grandstream93" class="required"
+																name="hardware87">
+															<label for="Grandstream93">
+																<span>
+																	<span class="img-holder">
+																		<img src="./assets/img/img01.png" alt="">
+																	</span>
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
+																		handset</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€107,03 </span>
+													</td>
+													<td>
+														<a href="#shop-telefoons-1" data-fancybox="group"
+															class="more-link">Bekijken</a>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="Grandstream94" class="required"
+																name="hardware87">
+															<label for="Grandstream94">
+																<span>
+																	<span class="img-holder">
+																		<img src="./assets/img/img02.png" alt="">
+																	</span>
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
+																		handset</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€160,33 </span>
+													</td>
+													<td>
+														<a href="#shop-telefoons-2" data-fancybox="group"
+															class="more-link">Bekijken</a>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="input-box">
+															<input type="radio" id="Grandstream95" class="required"
+																name="hardware87">
+															<label for="Grandstream95">
+																<span>
+																	<span class="img-holder">
+																		<img src="./assets/img/img07.png" alt="">
+																	</span>
+																	<span class="title label-title">Grandstream Dect
+																		basis station met
+																		handset</span>
+																</span>
+															</label>
+														</div>
+													</td>
+													<td>
+														<span class="price price-label">€107,03 </span>
+													</td>
+													<td>
+														<a href="#shop-telefoons-7" data-fancybox="group"
+															class="more-link">Bekijken</a>
 													</td>
 												</tr>
 											</table>
@@ -1932,9 +2530,9 @@
 						<button data-step-action="prev" class="step-btn prev">Vorige</button>
 						<button data-step-action="next" class="step-btn next">Volgende</button>
 						<button data-step-action="finish" class="step-btn">Finish</button>
-					  </div>
+					</div>
 				</div>
-			</form>
+			</div>
 			<aside class="sidebar">
 				<div class="top-block">
 					<h3>Uw bestelling</h3>
@@ -1945,7 +2543,7 @@
 				<div class="total-area">
 					<div class="line">
 						<span class="name">Totaal eenmalig</span>
-						<span class="total-price">€	0.00</span>
+						<span class="total-price">€ 0.00</span>
 					</div>
 					<div class="line">
 						<span class="name">Totaal per maand</span>
