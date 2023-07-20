@@ -240,6 +240,24 @@ $(document).ready(function () {
     });
 
 
+	// $(document).ready(function () {
+	// 	$('input[name="phone"]').on('change', function () {
+	// 		var selectedRadio = $('input[name="phone"]:checked');
+	// 		var phoneNumber = selectedRadio.attr('data-phone_num');
+	// 		var price = selectedRadio.val();
+	// 		var priceArea = $('.price-area');
+	
+	// 		// Создаем новый элемент списка с номером телефона и ценой
+	// 		var newLi = $('<li></li>').append($('<span class="title"></span>').text(phoneNumber));
+	// 		newLi.append($('<span class="price"></span>').text('€' + price));
+	
+	// 		// Находим ul.list внутри .price-area и добавляем новый элемент списка
+	// 		priceArea.find('.list').html(newLi);
+	// 	});
+	// });
+	
+
+
 	function addSelectedTr() {
 		$('input[type="radio"]').on('change', function () {
 			var selectedRadio = $(this);

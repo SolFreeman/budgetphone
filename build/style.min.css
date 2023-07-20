@@ -9,8 +9,7 @@ body {
   line-height: 1.5;
   font-family: "Source Sans 3", sans-serif;
   padding: 0;
-  margin: 0;
-  overflow-x: hidden; }
+  margin: 0; }
 
 address {
   font-style: normal; }
@@ -988,8 +987,7 @@ $screen-large 1280px
   .shop .product-list {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center; }
+    justify-content: center; }
     .shop .product-list.telefoons .top-box .label {
       top: auto;
       bottom: 138px;
@@ -1011,10 +1009,8 @@ $screen-large 1280px
     @media (min-width: 768px) {
       .shop .product-list {
         flex-direction: row;
-        flex-wrap: nowrap;
         width: 100%; }
         .shop .product-list.telefoons {
-          flex-wrap: wrap;
           align-items: normal; }
           .shop .product-list.telefoons .product-item {
             margin: 12px; } }
@@ -1400,9 +1396,6 @@ $screen-large 1280px
         margin-left: 15px; } }
   .modal-shop .scroll {
     max-height: 564px; }
-
-.telefoons {
-  height: 800px; }
 
 .fancybox-infobar {
   display: none; }

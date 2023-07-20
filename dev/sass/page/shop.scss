@@ -164,8 +164,9 @@
     .product-list {
         display: flex;
         flex-wrap: wrap;
-        flex-direction: column;
-        align-items: center;
+        justify-content: center;
+        // flex-direction: column;
+        // align-items: center;
 
         &.telefoons {
             .top-box {
@@ -201,11 +202,9 @@
 
         @include media('>=tablet') {
             flex-direction: row;
-            flex-wrap: nowrap;
             width: 100%;
 
             &.telefoons {
-                flex-wrap: wrap;
                 align-items: normal;
 
                 .product-item {
@@ -775,10 +774,6 @@
     .scroll {
         max-height: 564px;
     }
-}
-
-.telefoons {
-    height: 800px;
 }
 
 .fancybox-infobar {
