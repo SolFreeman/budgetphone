@@ -227,8 +227,8 @@ $(document).ready(function () {
 
 	filterTableRows();
 
-	$('.step-btn.next').on('click', function () {
-        var selectAmount = $('.select-amount');
+	$('.enabled .step-btn.next').on('click', function () {
+        var selectAmount = $('.enabled .select-amount');
         var customElement = $('.custom .step-tab-group');
 		var customElement2 = $('.custom .step-tab-single');
         
@@ -240,21 +240,32 @@ $(document).ready(function () {
     });
 
 
-	// $(document).ready(function () {
-	// 	$('input[name="phone"]').on('change', function () {
-	// 		var selectedRadio = $('input[name="phone"]:checked');
-	// 		var phoneNumber = selectedRadio.attr('data-phone_num');
-	// 		var price = selectedRadio.val();
-	// 		var priceArea = $('.price-area');
+	$('input[name="phone"]').on('change', function () {
+        var selectedRadio = $('input[name="phone"]:checked');
+        var phoneType = selectedRadio.attr('data-phone_type');
+        var phoneNumber = selectedRadio.attr('data-phone_num');
+        var price = selectedRadio.val();
+        var priceArea = $('.price-area');
+
+        // Очищаем содержимое priceArea перед добавлением новых данных
+        priceArea.html('');
+
+        if (phoneType === 'range') {
+            var phoneNumbersArray = phoneNumber.split(', ');
+            phoneNumbersArray.forEach(function (number) {
+                var newLi = $('<li></li>').append($('<span class="title"></span>').text(number));
+                newLi.append($('<span class="price"></span>').text('€' + price));
+                priceArea.append(newLi);
+            });
+        } else {
+            // Создаем новый элемент списка с номером телефона и ценой
+            var newLi = $('<li></li>').append($('<span class="title"></span>').text(phoneNumber));
+            newLi.append($('<span class="price"></span>').text('€' + price));
+            priceArea.append(newLi);
+        }
+    });
+
 	
-	// 		// Создаем новый элемент списка с номером телефона и ценой
-	// 		var newLi = $('<li></li>').append($('<span class="title"></span>').text(phoneNumber));
-	// 		newLi.append($('<span class="price"></span>').text('€' + price));
-	
-	// 		// Находим ul.list внутри .price-area и добавляем новый элемент списка
-	// 		priceArea.find('.list').html(newLi);
-	// 	});
-	// });
 	
 
 
